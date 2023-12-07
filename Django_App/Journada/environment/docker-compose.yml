@@ -1,0 +1,18 @@
+#container for the postgres server 
+version: '3.9'
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    #command: --init-file /.sql
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=journada_db
+      - DB_NAME=journada_db
+      - DB_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - DB_PASSWORD=admin123
+      - DB_HOST=127.0.0.1
+      - DB_PORT=5432
