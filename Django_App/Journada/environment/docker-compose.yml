@@ -1,18 +1,33 @@
-#container for the postgres server 
+#containers for the postgres server and the pgAdmin web client   
 version: '3.9'
 services:
-  postgres:
+  pg:
+    container_name: pg_container
     image: postgres:14-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
     ports:
       - 5432:5432
-    #command: --init-file /.sql
     volumes:
-      - ~/apps/postgres:/var/lib/postgresql/data
+      - "${PWD}/data/initdb/:/docker-entrypoint-initdb.d/"
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4:6.4
+    restart: always
     environment:
-      - POSTGRES_DB=journada_db
-      - DB_NAME=journada_db
-      - DB_USER=postgres
-      - POSTGRES_PASSWORD=admin123
-      - DB_PASSWORD=admin123
-      - DB_HOST=127.0.0.1
-      - DB_PORT=5432
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_LISTEN_PORT: 5433
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
+    ports:
+      - "5433:5433"
+    depends_on:
+      - pg
+networks:
+  default:
+    name: nunet
