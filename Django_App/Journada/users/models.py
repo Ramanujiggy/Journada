@@ -10,10 +10,27 @@ from . import apps
 
 #creating user model for database
 class User(models.Model):
+    """def __init__(self, username:str, password:str, user_email:str,user_id):
+        self.user_email = user_email
+        self.password = password
+        self.username = username"""
+
+
+    #table definition stuff....
     user_id=  models.BigAutoField(primary_key=True)
-    username= models.CharField(max_length=30, blank=False)
-    password= models.CharField(max_length=30, blank=False)
-    user_email= models.CharField(max_length=30,blank=False)
+    username= models.CharField(max_length=100, blank=False)
+    password= models.CharField(max_length=100, blank=False)
+    user_email= models.CharField(max_length=100,blank=False)
+
+    def serialize(self): #serializing the data for json web response
+        return{
+            'user_id': user_id,
+            'username': username,
+            'user_email': user_email
+        }
+
+
+
 
 #creating session model for  database
 class Session(models.Model):
