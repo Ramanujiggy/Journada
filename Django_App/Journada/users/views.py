@@ -5,12 +5,15 @@ from django.http import JsonResponse
 from django.core.serializers import serialize
 from django.shortcuts import get_object_or_404, get_list_or_404
 #from django.contrib.auth.models import User 
+from django.template import loader 
+from django.views.decorators.csrf import csrf_exempt 
+import json 
 
 #views MUST contain http response 
 
 
 
-def index(request): #returns all users using qs/data variables and serialization from django core
+def index(request): #returns all users 
      all_users= User.objects.all()
      data= serialize("json", all_users, fields =('username','user_email'))
      return HttpResponse(data, content_type="application/json")
@@ -23,13 +26,18 @@ def search(request, user_id ):#retrieve a specific user
      except User.DoesNotExist:
           return JsonResponse({"error":"User not found"}, status=404)
    
-          
-
-
-def register(request, username, password, user_email):
-     output= "Welcome to Journada, your request has been registered. Your information is below.9"
-
-     return HttpResponse()
+@csrf_exempt 
+def register(request):
+     received_data = json.loads(request.body) #loads the request.body as a json object. 
+     nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
+     nuser.save()
+     template = loader.get_template("users/register.html")
+     context = {
+          'username':received_data['username'], 
+          'password': received_data['password'],
+          'user_email':received_data['user_email']
+     }
+     return render(request,"users/register.html", context)
 
 def log_sesssion(request, session_id):
           response= "Log a training session here! Session id is % --NOT BUILT--"

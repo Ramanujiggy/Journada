@@ -18,9 +18,9 @@ class User(models.Model):
 
     #table definition stuff....
     user_id=  models.BigAutoField(primary_key=True)
-    username= models.CharField(max_length=100, blank=False)
+    username= models.CharField(max_length=100, blank=False,unique=True)
     password= models.CharField(max_length=100, blank=False)
-    user_email= models.CharField(max_length=100,blank=False)
+    user_email= models.CharField(max_length=100,blank=False,unique=True)
 
     def serialize(self): #serializing the data for json web response
         return{
