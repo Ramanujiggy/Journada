@@ -30,9 +30,6 @@ def search(request, user_id ):#retrieve a specific user
 @csrf_exempt 
 def register(request):
      form=RegisterUserForm()
-     #received_data = json.loads(request.body) #loads the request.body as a json object. 
-     #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
-     #nuser.save()
      if (request.method == 'POST'):
           form = RegisterUserForm(request.POST)
           if (form.is_valid()):
@@ -46,7 +43,12 @@ def register(request):
      template = loader.get_template("users/register.html")
      return render(request,"users/register.html", {'form': form})
 
-def log_sesssion(request, session_id):
+     #leaving this in case i want to make a json object later. 
+     #received_data = json.loads(request.body) #loads the request.body as a json object. 
+     #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
+     #nuser.save()
+
+def log_sesssion(request):
           response= "Log a training session here! Session id is % --NOT BUILT--"
           return HttpResponse(response)
 
