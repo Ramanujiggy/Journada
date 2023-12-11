@@ -7,5 +7,5 @@ class RegisterUserForm(forms.Form):
 
 
 
-class LogUserSession(forms.Form):
+class LogUserSessionForm(forms.Form):
     date=forms.DateTimeField(input_formats=['%d/%m/%y %H:%M'])

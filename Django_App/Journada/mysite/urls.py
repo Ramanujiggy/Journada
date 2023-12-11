@@ -19,5 +19,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include("users.urls")) #referencing the urlconf file under 'users' app. 
+    path('users/', include("users.urls")),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path("",TemplateView.as_view(template_name="home.html"), name = "home")
+    #path('register/', views.register, name='register') 
 ]

@@ -35,9 +35,10 @@ class User(models.Model):
 #creating session model for  database
 class Session(models.Model):
     session_id=models.BigAutoField(primary_key=True)
-    date=models.DateField(default=timezone.now)
-    time=models.TimeField(default=timezone.now)
+    date=models.DateField(blank=False)
+    time=models.TimeField(blank=False)
     hours_trained=models.IntegerField(default=0)
+    grappling_type=models.CharField()
     #adding userID foreign key 
     user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True) #adding foreign key to associate with user
     #converting user_id to string

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import User
+from .models import User, Session
 from django.http import JsonResponse 
 from django.core.serializers import serialize
 from django.shortcuts import get_object_or_404, get_list_or_404
@@ -40,15 +40,27 @@ def register(request):
                nuser.save()
                return HttpResponse("Thank you for Registering, we are glad to have you! Welcome to Journada," +username)
      form= RegisterUserForm()
-     template = loader.get_template("users/register.html")
-     return render(request,"users/register.html", {'form': form})
+     template = loader.get_template("Django_App/Journada/mysite/templates/registration/register.html")
+     return render(request,"Django_App/Journada/mysite/templates/registration/register.html", {'form': form})
 
      #leaving this in case i want to make a json object later. 
      #received_data = json.loads(request.body) #loads the request.body as a json object. 
      #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
      #nuser.save()
 
-def log_sesssion(request):
+def log(request):
+          form=LogUserSession()
+          if (request.method == 'POST'):
+               form = LogUserSessionForm(request.POST)
+               if(form.is_valid()):
+                    date=form.cleaned_data['date']
+                    time=form.cleaned_data['time']
+                    date=form.cleaned_data['hours_trained']
+                    grappling_type=form.cleaned_data['grappling_type']
+               nsession=Session.objects.create
+
+
+          
           response= "Log a training session here! Session id is % --NOT BUILT--"
           return HttpResponse(response)
 
