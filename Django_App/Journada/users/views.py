@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt 
 import json 
-
+from .forms import RegisterUserForm
 #views MUST contain http response 
 
 
@@ -28,16 +28,12 @@ def search(request, user_id ):#retrieve a specific user
    
 @csrf_exempt 
 def register(request):
-     received_data = json.loads(request.body) #loads the request.body as a json object. 
-     nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
-     nuser.save()
+     form=RegisterUserForm()
+     #received_data = json.loads(request.body) #loads the request.body as a json object. 
+     #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
+     #nuser.save()
      template = loader.get_template("users/register.html")
-     context = {
-          'username':received_data['username'], 
-          'password': received_data['password'],
-          'user_email':received_data['user_email']
-     }
-     return render(request,"users/register.html", context)
+     return render(request,"users/register.html", {'form': form})
 
 def log_sesssion(request, session_id):
           response= "Log a training session here! Session id is % --NOT BUILT--"
