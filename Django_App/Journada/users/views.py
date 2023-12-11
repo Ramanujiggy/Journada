@@ -17,6 +17,7 @@ def index(request): #returns all users
      all_users= User.objects.all()
      data= serialize("json", all_users, fields =('username','user_email'))
      return HttpResponse(data, content_type="application/json")
+
   
 def search(request, user_id ):#retrieve a specific user 
      try:
@@ -32,6 +33,16 @@ def register(request):
      #received_data = json.loads(request.body) #loads the request.body as a json object. 
      #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
      #nuser.save()
+     if (request.method == 'POST'):
+          form = RegisterUserForm(request.POST)
+          if (form.is_valid()):
+               user_email= form.cleaned_data['user_email']
+               username= form.cleaned_data['username']
+               password= form.cleaned_data['password']
+               nuser=User.objects.create(username=username,password=password,user_email=user_email)
+               nuser.save()
+               return HttpResponse("Thank you for Registering, we are glad to have you! Welcome to Journada," +username)
+     form= RegisterUserForm()
      template = loader.get_template("users/register.html")
      return render(request,"users/register.html", {'form': form})
 
