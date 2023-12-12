@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView 
+from django.contrib.auth import views as auth_views
+from  . import settings 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include("users.urls")),
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include("django.contrib.auth.urls")),
-    path("",TemplateView.as_view(template_name="home.html"), name = "home")
+    path("",TemplateView.as_view(template_name="home.html"), name = "home"),
+    #path('accounts/logout/',auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='journada_logout')
     #path('register/', views.register, name='register') 
 ]

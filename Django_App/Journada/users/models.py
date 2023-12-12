@@ -18,9 +18,12 @@ class User(models.Model):
 
     #table definition stuff....
     user_id=  models.BigAutoField(primary_key=True)
+    first_name=models.CharField(max_length=100,unique=False)
+    last_name=models.CharField(max_length=100,unique=False)
     username= models.CharField(max_length=100, blank=False,unique=True)
     password= models.CharField(max_length=100, blank=False)
-    user_email= models.CharField(max_length=100,blank=False,unique=True)
+    user_email= models.EmailField(max_length=100,blank=False,unique=True)
+    USERNAME_FIELD= 'username'
 
     def serialize(self): #serializing the data for json web response
         return{
@@ -38,7 +41,7 @@ class Session(models.Model):
     date=models.DateField(blank=False)
     time=models.TimeField(blank=False)
     hours_trained=models.IntegerField(default=0)
-    grappling_type=models.CharField()
+    grappling_type=models.CharField(default='Gi')
     #adding userID foreign key 
     user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True) #adding foreign key to associate with user
     #converting user_id to string

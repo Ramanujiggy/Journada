@@ -8,7 +8,6 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt 
 import json 
-from .forms import RegisterUserForm
 #views MUST contain http response 
 
 
@@ -27,26 +26,7 @@ def search(request, user_id ):#retrieve a specific user
      except User.DoesNotExist:
           return JsonResponse({"error":"User not found"}, status=404)
    
-@csrf_exempt 
-def register(request):
-     form=RegisterUserForm()
-     if (request.method == 'POST'):
-          form = RegisterUserForm(request.POST)
-          if (form.is_valid()):
-               user_email= form.cleaned_data['user_email']
-               username= form.cleaned_data['username']
-               password= form.cleaned_data['password']
-               nuser=User.objects.create(username=username,password=password,user_email=user_email)
-               nuser.save()
-               return HttpResponse("Thank you for Registering, we are glad to have you! Welcome to Journada," +username)
-     form= RegisterUserForm()
-     template = loader.get_template("Django_App/Journada/mysite/templates/registration/register.html")
-     return render(request,"Django_App/Journada/mysite/templates/registration/register.html", {'form': form})
 
-     #leaving this in case i want to make a json object later. 
-     #received_data = json.loads(request.body) #loads the request.body as a json object. 
-     #nuser=User(username=received_data['username'],password=received_data['password'],user_email=received_data['user_email'])
-     #nuser.save()
 
 def log(request):
           form=LogUserSession()
