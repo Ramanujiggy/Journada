@@ -1,17 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
 
+{% block title %}Home Page!{% endblock %}
 {% block content %}
-<form method="POST"></form>
-{% if user.is_authenticated %}
-
-Hi {{ user.username }}!
-
-<p><a href="{% url 'logout' %}">Log Out</a></p>
-</form>
-{% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
+<div class="container">
+    <form method="POST"></form>
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    {% endif %}
+</div>
 {% endblock %}

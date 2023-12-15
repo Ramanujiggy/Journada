@@ -1,13 +1,14 @@
-<!-- templates/registration/signup.html -->
-{% extends "base.html" %}
-
-{% block title %}Sign Up{% endblock %}
+{% extends 'base.html' %} 
+{% block title %}Register account{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h2>Welcome to Journada, please register account below.</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+<form method ="post">
+{% csrf_token %}{{ form|crispy }}
+<p>Have an account? Login <a href="{% url 'login' %}">here</a>!</p>
+<button type = "submit" class "btn btn-success">Register</button>
 </form>
 {% endblock %}
+
+
+
