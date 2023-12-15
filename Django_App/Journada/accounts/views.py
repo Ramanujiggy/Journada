@@ -23,12 +23,18 @@ def register(request):
           if (form.is_valid()):
                user=form.save()
                auth_login(request,user)
-               return redirect('/home')
+               return redirect('home')
                
      else: 
         form= SignUpForm()
      #template = loader.get_template("registration/signup.html")
      return render(request,"registration/signup.html", {'form': form})
+
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
 
 
 

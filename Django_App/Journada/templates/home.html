@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Home Page!{% endblock %}
+{% block title %}Journada Dashboard{% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
     <form method="POST"></form>
     {% if user.is_authenticated %}
-    Hi {{ user.username }}!
+    Welcome, {{ user.username }}. 
+    {% else %}
+        
+           <!-- <form method="post"> -->
+            <h1>Welcome to Journada!</h1>
+           <!--{{form|crispy}}-->
+            {% csrf_token%}
+            
+            <h2> <a href='/accounts/login'>Login</a></h2>
+            
+
+            <p> Don't have an account? Create one <a href='/accounts/signup'>here</a>!</p>
+           
+            <!--</form>-->
     {% endif %}
+
+
 </div>
 {% endblock %}

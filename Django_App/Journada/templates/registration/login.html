@@ -1,11 +1,14 @@
 <!-- templates/registration/login.html -->
 {% extends "base.html" %}
-{% block title %} Login {%endblock%}
+{% block title %}Journada- Login {%endblock%}
 
 {% load crispy_forms_tags %}
 
 {% block content %}
 <form method="post">
+    <h1>Log In</h1>
+
+    
     {% csrf_token%} {{form|crispy}}
     <p> Don't have an account? Create one <a href='/accounts/signup'>here</a>!</p>
         <button type = "submit" class="btn btn-success">Login</button>
