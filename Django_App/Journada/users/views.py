@@ -8,8 +8,6 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt 
 import json 
-#views MUST contain http response 
-
 
 
 def index(request): #returns all users 
