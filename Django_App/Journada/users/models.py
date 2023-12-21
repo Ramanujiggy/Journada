@@ -37,10 +37,11 @@ class Session(models.Model):
     date=models.DateField(blank=False)
     time=models.TimeField(blank=False)
     hours_trained=models.IntegerField(default=0)
+    minutes_trained=models.IntegerField(default=0)
     grappling_type=models.CharField(default='Gi')
+    notes = models.TextField(blank=True, null=True)
     #adding userID foreign key 
-    #user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True) 
-    user_id=models.ForeignKey(User, on_delete=models.CASCADE) #adding foreign key to associate with user
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE, null=True) #adding foreign key to associate with user
     #converting user_id to string
     def __str__(self):
         return self.user_id

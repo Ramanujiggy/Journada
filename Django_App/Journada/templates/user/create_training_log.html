@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Entry Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+{% block content %}
+<body>
+  <div class="container">
+    <h1>Time Entry Form</h1>
+    <form action="log_session" method="POST">
+    {% csrf_token%}
+  </div>
+  <div class="form-group">
+    <label for="hours">Hours Trained</label>
+    <input type="number" class="form-control" id="hours_trained" name="hours">
+  </div>
+  <div class="form-group">
+    <label for="minutes">Minutes Trained</label>
+    <input type="number" class="form-control" id="minutes_trained" name="minutes">
+  </div>
+  <div class = "form-group">
+     <input type="datetime-local" id="current-time" name="current-time" value="{% now "DATE_FORMAT" %}">
+     <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+{% endblock %}
+</html>
