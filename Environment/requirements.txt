@@ -5,4 +5,4 @@ crispy-bootstrap4
 
 ###### Requirements with Version Specifiers ######
 Django==5.0
-psycopg2-binary==2.9.6
+psycopg2-binary==2.9.9
