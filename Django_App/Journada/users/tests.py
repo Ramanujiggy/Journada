@@ -1,3 +1,5 @@
-from django.test import TestCase
 
-# Create your tests here.
+
+class TestLogSessionModel:
+    def test_session_create(self, post_factory):
+        session=post

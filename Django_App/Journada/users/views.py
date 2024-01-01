@@ -37,7 +37,9 @@ def log_session(request):
                     training_session=form.save(commit=False)
                     training_session.user=request.user
                     training_session.save()
-                    return redirect('home') #change this to the dashboard view for triaining sessions 
+                    return redirect('home') #change this to the dashboard view for triaining sessions
+               else:
+                    return JsonResponse({"error":"not able to submit"}, status=404) 
           else:
                form=TrainingSessionForm()
           return render(request,"user/create_training_log.html",{'form':form})
