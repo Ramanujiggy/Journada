@@ -19,6 +19,10 @@ class User(models.Model):
     username= models.CharField(max_length=100, blank=False,unique=True)
     password= models.CharField(max_length=100, blank=False)
     email= models.EmailField(max_length=100,blank=False,unique=True)
+    last_login= models.DateTimeField(default=timezone.now)
+    is_active= models.BooleanField(default=True)
+    is_staff= models.BooleanField(default=False)
+    is_superuser= models.BooleanField(default=False)
     USERNAME_FIELD= 'username'
 
     def serialize(self): #serializing the data for json web response

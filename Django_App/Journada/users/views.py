@@ -36,10 +36,18 @@ def log_session(request):
                if(form.is_valid()):
                     training_session=form.save(commit=False)
                     training_session.user=request.user
+                    #accessing combined date and time  as 'current_time'
+                    combined_datetime = form.cleaned_data['current_time']
+
+                    #parsing the combined datetime string into seperate date and time components
+                    parsed_datetime = datetime.strptime(combined_datetime, '%Y-%m-%dT%H:%M')
+                    
+                    training_session.date=parsed_datetime.date()
+                    training_session.time = parsed_datetime.time()
                     training_session.save()
                     return redirect('home') #change this to the dashboard view for triaining sessions
                else:
-                    return JsonResponse({"error":"not able to submit"}, status=404) 
+                    return JsonResponse({"errors":form.errors}, status=400) 
           else:
                form=TrainingSessionForm()
           return render(request,"user/create_training_log.html",{'form':form})

@@ -16,19 +16,35 @@
     <form action="log_session" method="POST">
     {% csrf_token%}
   </div>
+
   <div class="form-group">
-    <label for="hours">Hours Trained</label>
-    <input type="number" class="form-control" id="hours_trained" name="hours">
+    <label for="{{form.hours_trained.id_for_label}}">Hours Trained</label>
+    <input type="number" class="form-control" id="{{form.hours_trained.id_for_label}}" name="{{form.hours_trained.name}}">
   </div>
+
   <div class="form-group">
-    <label for="minutes">Minutes Trained</label>
-    <input type="number" class="form-control" id="minutes_trained" name="minutes">
+    <label for="{{form.minutes_trained.id_for_label}}">Minutes Trained</label>
+    <input type="number" class="form-control" id="{{form.minutes_trained.id_for_label}}" name="{{form.minutes_trained.name}}">
   </div>
+
   <div class = "form-group">
-     <input type="datetime-local" id="current-time" name="current-time" value="{% now "DATE_FORMAT" %}">
+    <select class="form-control" id="{{form.grappling_type.id_for_label}}" name= "form.grappling_type.name">
+      <option value = "gi">Gi</option>
+      <option value = "nogi">No-Gi</option>
+  </div>
+
+  <div class = "form-group">
+     <label for ="{{form.date.id_for_label}}">Date</label>
+     <input type="date" class ="form-control" id="form.date.id_for_label" name="form.date.name" >
+  </div>
+
+  <div class="form-group">
      <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
     </form>
   </div>
+
 </body>
 {% endblock %}
 </html>
