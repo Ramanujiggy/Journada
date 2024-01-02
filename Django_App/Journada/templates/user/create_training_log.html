@@ -28,14 +28,21 @@
   </div>
 
   <div class = "form-group">
-    <select class="form-control" id="{{form.grappling_type.id_for_label}}" name= "form.grappling_type.name">
+    <label for="{{form.grappling_type.id_for_label}}">Grappling Type (Gi/Nogi)</label>
+    <select class="form-control" id="{{form.grappling_type.id_for_label}}" name= "{{form.grappling_type.name}}">
       <option value = "gi">Gi</option>
       <option value = "nogi">No-Gi</option>
+    </select>
   </div>
 
   <div class = "form-group">
      <label for ="{{form.date.id_for_label}}">Date</label>
-     <input type="date" class ="form-control" id="form.date.id_for_label" name="form.date.name" >
+     <input type="date" class ="form-control" id="{{form.date.id_for_label}}" name="{{form.date.name}}" >
+  </div>
+
+  <div class = "form-group">
+    <label for="{{form.time.id_for_label}}">Time</label>
+    <input type="time" class ="form-control" id="{{form.time.id_for_label}}" name="{{form.time.name}}" >
   </div>
 
   <div class="form-group">

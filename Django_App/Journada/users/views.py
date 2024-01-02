@@ -36,14 +36,11 @@ def log_session(request):
                if(form.is_valid()):
                     training_session=form.save(commit=False)
                     training_session.user=request.user
-                    #accessing combined date and time  as 'current_time'
-                    combined_datetime = form.cleaned_data['current_time']
-
-                    #parsing the combined datetime string into seperate date and time components
-                    parsed_datetime = datetime.strptime(combined_datetime, '%Y-%m-%dT%H:%M')
-                    
-                    training_session.date=parsed_datetime.date()
-                    training_session.time = parsed_datetime.time()
+                    hours_trained= form.cleaned_data["hours_trained"]
+                    minutes_trained= form.cleaned_data["minutes_trained"]
+                    grappling_type= form.cleaned_data["grappling_type"]
+                    date = form.cleaned_data["date"]
+                    hours= form.cleaned_data["time"]
                     training_session.save()
                     return redirect('home') #change this to the dashboard view for triaining sessions
                else:
