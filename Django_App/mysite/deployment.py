@@ -5,7 +5,7 @@ from .settings import BASE_DIR
 #this will be a hostname provided by azure 
 SECRET_KEY = os.environ['SECRET']
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] 
-CSRF_TRUSTED_ORIGINS = ['https://' + os.enviorn['WEBSITE_HOSTNAME']]
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False 
 
 
