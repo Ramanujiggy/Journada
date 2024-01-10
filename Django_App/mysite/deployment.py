@@ -28,7 +28,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 
 connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-paramenters = {pair.split('='):pair.split('=')[1]for pair in connection_string.split(' ')} 
+parameters = {pair.split('='):pair.split('=')[1]for pair in connection_string.split(' ')} 
 
 
 DATABASES = {
