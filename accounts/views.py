@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login, logout, authenticate 
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.decorators.csrf import csrf_exempt  
+#from django.views.decorators.csrf import csrf_exempt  
 from django import forms
 from  .forms import SignUpForm
 from django.template import loader
@@ -15,7 +15,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-#@csrf_exempt 
+
 def register(request):
      form=SignUpForm()
      if (request.method == 'POST'):
@@ -27,7 +27,7 @@ def register(request):
                
      else: 
         form= SignUpForm()
-     #template = loader.get_template("registration/signup.html")
+     
      return render(request,"registration/signup.html", {'form': form})
 
 
