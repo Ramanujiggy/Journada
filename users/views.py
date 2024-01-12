@@ -4,7 +4,6 @@ from .models import User, Session
 from django.http import JsonResponse 
 from django.core.serializers import serialize
 from django.shortcuts import get_object_or_404, get_list_or_404
-#from django.contrib.auth.models import User 
 from django.template import loader 
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required 
@@ -56,6 +55,3 @@ def dashboard(request, user_id): #returns index of all training sessions and the
      return render(request, 'view_training_log', {'sessions':sessions})
      def serialize(): #returns all training sessions 
           pass 
-
-     
-      
