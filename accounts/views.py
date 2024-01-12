@@ -28,7 +28,7 @@ def register(request):
      else: 
         form= SignUpForm()
      #template = loader.get_template("registration/signup.html")
-     return render(request,"signup.html", {'form': form})
+     return render(request,"registration/signup.html", {'form': form})
 
 
 

@@ -47,13 +47,13 @@ def log_session(request):
                     return JsonResponse({"errors":form.errors}, status=400) 
           else:
                form=TrainingSessionForm()
-          return render(request,"user/create_training_log.html",{'form':form})
+          return render(request,"create_training_log.html",{'form':form})
 
 
 @login_required
 def dashboard(request, user_id): #returns index of all training sessions and the user 
      sessions=Session.objects.filter(user=request.user)
-     return render(request, 'user/view_training_log', {'sessions':sessions})
+     return render(request, 'view_training_log', {'sessions':sessions})
      def serialize(): #returns all training sessions 
           pass 
 
