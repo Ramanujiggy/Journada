@@ -22,7 +22,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect("login")
+            return redirect("home")
 
     else:
         form = SignUpForm()
@@ -40,4 +40,4 @@ def home(request):
 
 
 def login(request):
-    return render(request, "login.html")
+    return render(request, "registration/login.html")
