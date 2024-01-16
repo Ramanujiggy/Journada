@@ -27,6 +27,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/logout", views.user_logout, name="logout"),
+    path("accounts/login/", views.login, name="login"),
     path("", views.home, name="home"),
     # path('accounts/logout/',auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='journada_logout')
     # path('register/', views.register, name='register')
