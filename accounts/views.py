@@ -11,7 +11,7 @@ from django.template import loader
 from users.models import User
 from django.http import HttpResponse
 
-password=S23IB3X2WZ8BWU1P$
+
 # Create your views here.
 
 
