@@ -40,3 +40,14 @@ h1 {
 #main-signin-prompt a {
     color: #793d21;
 }
+
+.login-form {
+    margin: auto;
+    width: 50%;
+}
+
+.login-banner {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
