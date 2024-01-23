@@ -2,7 +2,10 @@ body {
     background-color: #217969;
 }
 
+.container {
+    display: block;
 
+}
 
 h1 {
     color: #793d21;
@@ -50,4 +53,30 @@ h1 {
     margin: auto;
     width: 50%;
     text-align: center;
+}
+
+.reg-form {
+    margin: auto;
+    width: 50%;
+}
+
+/* time log entry */
+#time-entry-banner {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#time-entry-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#time-entry-message {
+    padding: 10px;
+    flex-grow: 1;
+    margin-left: 10px;
+    justify-self: right;
 }

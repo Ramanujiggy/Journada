@@ -15,11 +15,11 @@
 
 {% block title %}Journada- Login {%endblock%}
 
-
 {% block content %}
 <div class="login-banner">
 <h1>Log In</h1>
 </div>
+
 <div class="login-form" id="login-form">
 <form method="post">
     {% csrf_token%} {{form|crispy}}
@@ -29,8 +29,7 @@
 <div class="signup-prompt" id="main-signin-prompt">
     <p> Don't have an account? 
     Create one <a href="{% url 'signup' %}">here</a>!</p>
-    </div>
-        
+    </div>   
 </form>
 
 {%endblock%}
