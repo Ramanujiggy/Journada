@@ -3,7 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
 # Distribution / packaging
 .Python
 build/
@@ -66,3 +65,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# IDE
+
+.idea/
