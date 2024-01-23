@@ -12,7 +12,7 @@ from users.models import User
 from django.http import HttpResponse
 
 
-# Create your views here.
+# Create your views here. test
 
 
 def register(request):

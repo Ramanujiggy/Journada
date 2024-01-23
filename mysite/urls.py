@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
-from . import settings
 from accounts import views
+from . import settings
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +30,4 @@ urlpatterns = [
     path("accounts/logout", views.user_logout, name="logout"),
     path("accounts/login/", views.login, name="login"),
     path("", views.home, name="home"),
-    # path('accounts/logout/',auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='journada_logout')
-    # path('register/', views.register, name='register')
 ]
