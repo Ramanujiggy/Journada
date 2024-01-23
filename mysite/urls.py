@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
 from accounts import views
@@ -30,4 +31,4 @@ urlpatterns = [
     path("accounts/logout", views.user_logout, name="logout"),
     path("accounts/login/", views.login, name="login"),
     path("", views.home, name="home"),
-]
+] + static(settings.STATIC_URL)

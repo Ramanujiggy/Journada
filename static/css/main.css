@@ -1,0 +1,42 @@
+body {
+    background-color: #217969;
+}
+
+
+
+h1 {
+    color: #793d21;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: rgb(1, 119, 109);
+
+    font-weight: 900;
+}
+
+.main-title {
+    height: 200px;
+    margin: auto;
+    text-align: center;
+
+}
+
+.login-button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    height: 100px;
+    text-align: center;
+}
+
+.login-button a:visited {
+    color: #793d21;
+}
+
+#main-signin-prompt {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    height: 100px;
+    text-align: center;
+}
+
+#main-signin-prompt a {
+    color: #793d21;
+}
