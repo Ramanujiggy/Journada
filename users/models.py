@@ -9,7 +9,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=100,unique=False)
     last_name = models.CharField(max_length=100,unique=False)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def serialize(self) -> dict:
         return {
@@ -28,7 +28,7 @@ class GrappleEntry(models.Model):
     grappling_type = models.CharField(default='Gi')
     notes = models.TextField(blank=True, null=True)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.user)
