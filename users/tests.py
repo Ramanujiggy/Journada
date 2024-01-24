@@ -1,8 +1,7 @@
 import pytest 
 from django.urls import reverse
-from .factories import GrappleEntryFactory
-from .factories import ProfileFactory
-
+from .factories import GrappleEntryFactory, UserFactory
+from .models import GrappleEntry
 
 
 #pytestmark = pytest.mark.django_db
@@ -12,7 +11,7 @@ from .factories import ProfileFactory
 @pytest.mark.django_db
 def test_session_view(client):
         #create a client to simulate http requests
-        user = ProfileFactory()
+        user = UserFactory()
         
         client.force_login(user)
 
@@ -27,10 +26,10 @@ def test_session_view(client):
         assert response.status_code == 302 #redirect status code 
 
         #check if session was saved to the database
-        assert TrainingSession.objects.count() >= 1 
+        assert GrappleEntry.objects.count() >= 1
 
         #get the saved session from the database
-        saved_session =TrainingSesssion.objects.first()
+        saved_session =GrappleEntry.objects.first()
 
         assert saved_session.grappling_type == grapple_entry.grappling_type
         assert saved_session.hours_trained == grapple_entry.hours_trained
