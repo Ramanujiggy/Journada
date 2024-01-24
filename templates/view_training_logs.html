@@ -1,29 +1,54 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <header>
+      
+    </header>
+    
+    <main>
+      {% block content %}
+        <h1>Welcome to Your Training Dashboard</h1>
+      
+        <section id="sessions-list">
+            <h2>Training Sessions</h2>
+          <div class="sessions" id="sessions">
+            <ul>
+                <!-- Loop through sessions and display each one -->
+                {% for session in sessions %}
+                    <li>
+                        <!-- Display session information here -->
+                        Date: {{ session.date }}-
+                        {{ session.hours_trained }} Hours and {{ session.minutes_trained }} minutes. 
+                        Type: {{ session.grappling_type }}
+                        <!-- Add more session details as needed -->
+                    </li>
+                {% empty %}
+                    <p>No training sessions found.</p>
+                {% endfor %}
+
+            </ul>
+          </div> 
+          
+        
+        </section>
+     
+        
+        <!-- Add any other sections or content you need for the dashboard -->
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Footer content if needed -->
+    </footer>
+</body>
+</html>

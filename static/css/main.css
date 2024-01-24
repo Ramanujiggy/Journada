@@ -2,10 +2,7 @@ body {
     background-color: #217969;
 }
 
-.container {
-    display: block;
-
-}
+.container {}
 
 h1 {
     color: #793d21;
@@ -79,4 +76,17 @@ h1 {
     flex-grow: 1;
     margin-left: 10px;
     justify-self: right;
+}
+
+
+/* Dashboard */
+
+.container #sessions {
+    display: flex;
+    justify-content: flex-start;
+    max-height: 350px;
+    max-width: 50%;
+    overflow-y: auto;
+    border: 1px solid #000;
+    padding: 10px;
 }
