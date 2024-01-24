@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Sum
 from django.http import HttpResponse
 from .models import Profile, GrappleEntry
 from django.http import JsonResponse
@@ -54,7 +55,17 @@ def log_session(request):
 def dashboard(request):
     """returns all training sessions for specific user"""
     sessions = GrappleEntry.objects.filter(user=request.user)
-    return render(request, "view_training_logs.html", {"sessions": sessions})
+    hours_trained = GrappleEntry.objects.aggregate(Sum("hours_trained"))
+    minutes_trained = GrappleEntry.objects.aggregate(Sum("minutes_trained"))
+    if minutes_trained.get("minutes_trained__sum", 0) > 60:
+        minutes_trained = minutes_trained.get("minutes_trained__sum", 0) / 60
+    total_mat_time = hours_trained.get("hours_trained__sum", 0) + minutes_trained
+
+    return render(
+        request,
+        "view_training_logs.html",
+        {"sessions": sessions, "total_mat_time": round(total_mat_time)},
+    )
 
     def serialize():
         pass
