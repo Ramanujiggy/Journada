@@ -22,13 +22,13 @@
         <section id="sessions-list">
             <h2>Training Sessions</h2>
           <div class="sessions" id="sessions">
-            <ul>
+            <ul class="ul" id="ul-sessions">
                 <!-- Loop through sessions and display each one -->
                 {% for session in sessions %}
-                    <li>
+                    <li class="list-item" id="training-session">
                         <!-- Display session information here -->
                         Date: {{ session.date }}-
-                        {{ session.hours_trained }} Hours and {{ session.minutes_trained }} minutes. 
+                        {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
                         Type: {{ session.grappling_type }}
                         <!-- Add more session details as needed -->
                     </li>

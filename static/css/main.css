@@ -85,8 +85,18 @@ h1 {
     display: flex;
     justify-content: flex-start;
     max-height: 350px;
-    max-width: 50%;
+    max-width: 350px;
     overflow-y: auto;
     border: 1px solid #000;
     padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0%;
+}
+
+#sessions ul li:not(:last-child) {
+    border-bottom: 1px solid #000;
+
 }
