@@ -1,11 +1,10 @@
-import factory 
-import pytest  
+import pytest
 from pytest_factoryboy import register 
 
-from .factories import (UserFactory,SessionFactory)
+from .factories import (ProfileFactory, GrappleEntryFactory)
 
-register(SessionFactory) #registering factories to make them accessible
-register(UserFactory)
+register(GrappleEntryFactory) #registering factories to make them accessible
+register(ProfileFactory)
 
 
 
