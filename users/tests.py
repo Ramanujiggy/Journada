@@ -1,11 +1,7 @@
 import pytest 
 from django.urls import reverse
-from django.test import Client
-from .models import Session 
-from .models import User 
-from .forms import TrainingSessionForm
-from .factories import SessionFactory
-from .factories import UserFactory 
+from .factories import GrappleEntryFactory
+from .factories import ProfileFactory
 
 
 
@@ -14,18 +10,18 @@ from .factories import UserFactory
 
 
 @pytest.mark.django_db
-def test_session_view(client,user_factory):
+def test_session_view(client):
         #create a client to simulate http requests
-        user = UserFactory()
+        user = ProfileFactory()
         
         client.force_login(user)
 
         #use factory boy to create new TrainingSession Instance
-        session = SessionFactory.create()
+        grapple_entry = GrappleEntryFactory.create()
        
 
 
-        response = client.post(reverse("users:log_session"), session.__dict__)
+        response = client.post(reverse("users:log_session"), grapple_entry.__dict__)
         
         #check if the response is a redirect (indicating success)
         assert response.status_code == 302 #redirect status code 
@@ -36,12 +32,12 @@ def test_session_view(client,user_factory):
         #get the saved session from the database
         saved_session =TrainingSesssion.objects.first()
 
-        assert saved_session.grappling_type == session.grappling_type
-        assert saved_session.hours_trained == session.hours_trained
-        assert saved_session.minutes_trained == session.minutes_trained
-        assert saved_session.date == session.date
-        assert saved_session.time == session.time
-        assert saved_session.notes == session.notes
+        assert saved_session.grappling_type == grapple_entry.grappling_type
+        assert saved_session.hours_trained == grapple_entry.hours_trained
+        assert saved_session.minutes_trained == grapple_entry.minutes_trained
+        assert saved_session.date == grapple_entry.date
+        assert saved_session.time == grapple_entry.time
+        assert saved_session.notes == grapple_entry.notes
 
 
 """
