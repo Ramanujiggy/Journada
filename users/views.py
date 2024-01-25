@@ -75,7 +75,7 @@ def dashboard(request):
     if total_minutes_trained >= 60:
         total_hours_trained += total_minutes_trained // 60
         total_mat_time = total_hours_trained
-        return total_mat_time
+
     else:
         total_mat_time = float(round(total_hours_trained + total_minutes_trained))
 
