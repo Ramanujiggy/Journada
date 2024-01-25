@@ -55,21 +55,28 @@ def log_session(request):
 def dashboard(request):
     """returns all training sessions for specific user"""
     sessions = GrappleEntry.objects.filter(user=request.user)
-    hours_trained = GrappleEntry.objects.aggregate(
-        Sum("hours_trained"), user=request.user
-    )
-    minutes_trained = GrappleEntry.objects.aggregate(
-        Sum("minutes_trained"), user=request.user
-    )
-    if minutes_trained.get("minutes_trained__sum", 0) > 60:
-        minutes_trained = minutes_trained.get("minutes_trained__sum", 0) / 60
-    total_mat_time = hours_trained.get("hours_trained__sum", 0) + minutes_trained
-
     return render(
         request,
         "view_training_logs.html",
-        {"sessions": sessions, "total_mat_time": round(total_mat_time)},
+        {"sessions": sessions},
     )
 
-    def serialize():
-        pass
+
+"""
+    hours_trained = (
+        GrappleEntry.objects.filter(user=request.user).aggregate(Sum("hours_trained"))[
+            "hours_trained"
+        ]
+        or 0
+    )
+
+    minutes_trained = GrappleEntry.objects.filter(user=request.user).aggregate(
+        Sum("minutes_trained")
+    )["minutes_trained"]
+    if minutes_trained >= 60:
+        hours_trained += minutes_trained // 60
+        total_mat_time = hours_trained
+
+    else:
+        total_mat_time = hours_trained + minutes_trained
+"""
