@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user
 from django import forms
 from .forms import TrainingSessionForm
 import json
@@ -54,11 +55,16 @@ def log_session(request):
 @login_required
 def dashboard(request):
     """returns all training sessions for specific user"""
-    sessions = GrappleEntry.objects.filter(user=request.user)
+    user = get_user(request)
+    sessions = GrappleEntry.objects.filter(user=user)
+    user_id = user.id
+
     return render(
         request,
         "view_training_logs.html",
-        {"sessions": sessions},
+        {
+            "sessions": sessions,
+        },
     )
 
 
