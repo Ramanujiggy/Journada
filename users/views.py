@@ -84,23 +84,3 @@ def dashboard(request):
             "total_mat_time": total_mat_time,
         },
     )
-
-
-"""
-    hours_trained = (
-        GrappleEntry.objects.filter(user=request.user).aggregate(Sum("hours_trained"))[
-            "hours_trained"
-        ]
-        or 0
-    )
-
-    minutes_trained = GrappleEntry.objects.filter(user=request.user).aggregate(
-        Sum("minutes_trained")
-    )["minutes_trained"]
-    if minutes_trained >= 60:
-        hours_trained += minutes_trained // 60
-        total_mat_time = hours_trained
-
-    else:
-        total_mat_time = hours_trained + minutes_trained
-"""

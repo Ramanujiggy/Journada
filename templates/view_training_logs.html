@@ -17,10 +17,12 @@
     
     <main>
       {% block content %}
-        <h1>Welcome to Your Training Dashboard</h1>
+        <h1 class="page-title" id="dashboard-title">Welcome to Your Training Dashboard</h1>
       
         <section id="sessions-list">
+          <div class="labels" id="training-session-title">
             <h2>Training Sessions</h2>
+          </div>
           <div class="sessions" id="sessions">
             <ul class="ul" id="ul-sessions">
                 <!-- Loop through sessions and display each one -->
@@ -46,8 +48,118 @@
           <br>
           <h3>Total Mat time: {{ total_mat_time}} </h3>
         </div>
-     
-        
+        <section class="calendar-log"id="calendar-div">
+          <main>
+            <div class="device">
+              <header>
+                <div class="calendar-com                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ponent" id="header-bar"></div>
+                <div class="header-title">
+                  <h1>Calendar</h1>
+                </div>
+                <div class="header-weekdays">
+                  <span>sun</span>
+                  <span>mon</span>
+                  <span>tue</span>
+                  <span>wed</span>
+                  <span>thu</span>
+                  <span>fri</span>
+                  <span>sat</span>
+                </div>
+              </header>
+              <section>
+                  <h2 class="month">December</h2>
+                  <form>
+                    <input type="radio" name="calendar-label-bg" class="calendar-label-bg" id="vacation" />
+                    <input type="radio" name="calendar-label-bg" class="calendar-label-bg" id="walk" />
+                    <input type="radio" name="calendar-label-bg" class="calendar-label-bg" id="fishing" />
+                    <input type="radio" name="calendar-label-bg" class="calendar-label-bg" id="weekend" />
+                    <input type="radio" name="calendar-label-bg" id="new" class="calendar-label-bg">
+                    <div class="calendar">
+                      <input type="checkbox" name="" id="" class="day previous-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day current-month" />
+                      <input type="checkbox" name="" id="" class="day next-month" />
+                      <input type="checkbox" name="" id="" class="day next-month" />
+                      <input type="checkbox" name="" id="" class="day next-month" />
+                      <div class="calendar-labels">
+                        <label for="vacation"><span>vacation</span></label>
+                        <label for="walk"><span>walk</span></label>
+                        <label for="fishing"><span>fishing</span></label>
+                        <label for="weekend"><span>weekend</span></label>
+                        <label for="new" class="full"><input type="text" placeholder="Add new task"></label>
+                        <label class="reset">
+                          <input type="reset" value="Reset"/>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                  <h2 class="month">January</h2>
+                  <div class="calendar inactive">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                    <input type="checkbox" name="" id="" class="day next-month">
+                  </div>
+              </section>
+            </div>
+          </main>
+          
+        </section>
         <!-- Add any other sections or content you need for the dashboard -->
         {% endblock %}
     </main>
