@@ -56,14 +56,37 @@ def log_session(request):
 def dashboard(request):
     """returns all training sessions for specific user"""
     user = get_user(request)
-    sessions = GrappleEntry.objects.filter(user=user)
     user_id = user.id
+    sessions = GrappleEntry.objects.filter(user=user)
+    total_hours_trained = (
+        GrappleEntry.objects.filter(id=user_id).aggregate(
+            total_hours=Sum("hours_trained")
+        )["total_hours"]
+        or 0
+    )
+
+    total_minutes_trained = (
+        GrappleEntry.objects.filter(id=user_id).aggregate(
+            total_minutes=Sum("minutes_trained")
+        )["total_minutes"]
+        or 0
+    )
+
+    if total_minutes_trained >= 60:
+        total_hours_trained += total_minutes_trained // 60
+        total_mat_time = total_hours_trained
+        return total_mat_time
+    else:
+        total_mat_time = float(round(total_hours_trained + total_minutes_trained))
 
     return render(
         request,
         "view_training_logs.html",
         {
             "sessions": sessions,
+            "hours_trained": total_hours_trained,
+            "minutes_trained": total_minutes_trained,
+            "total_mat_time": round(total_mat_time),
         },
     )
 
