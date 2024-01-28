@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!--- <link rel="stylesheet" href="{% static 'css/main.css' %}">-->
+    <link rel="stylesheet" href="\\RNas1\First_Share\Repository\Journada\Journada\static\css\main.css">
 </head>
 <body>
     <header>
@@ -17,37 +18,50 @@
     
     <main>
       {% block content %}
-        <h1 class="page-title" id="dashboard-title">Welcome to Your Training Dashboard</h1>
+        <section>
+          <h1 class="page-title" id="dashboard-title">Welcome to Your Training Dashboard</h1>
+        </section>
       
-        <section id="sessions-list">
+        <section id="sessions-list" class="3-col">
+
+          {% comment %} Column 1 {% endcomment %}
           <div class="labels" id="training-session-title">
             <h2>Training Sessions</h2>
+            <div class="sessions" id="sessions">
+              <ul class="ul" id="ul-sessions">
+                  <!-- Loop through sessions and display each one -->
+                  {% for session in sessions %}
+                      <li class="list-item" id="training-session">
+                          <!-- Display session information here -->
+                          Date: {{ session.date }}-
+                          {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
+                          Type: {{ session.grappling_type }}
+                          <!-- Add more session details as needed -->
+                      </li>
+                  {% empty %}
+                      <p>No training sessions found.</p>
+                  {% endfor %}
+              </ul>
+            </div>
+          </div>   
+          
+          {% comment %} Column 2 {% endcomment %}
+          <div class="total-time-display" id="total-hours">
+            <h3>Hours Trained: {{ hours_trained}} </h3>
+            <br>
+            <h3>Minutes Trained: {{ minutes_trained }}</h3>
+            <br>
+            <h3>Total Mat time: {{ total_mat_time}} </h3>
           </div>
-          <div class="sessions" id="sessions">
-            <ul class="ul" id="ul-sessions">
-                <!-- Loop through sessions and display each one -->
-                {% for session in sessions %}
-                    <li class="list-item" id="training-session">
-                        <!-- Display session information here -->
-                        Date: {{ session.date }}-
-                        {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
-                        Type: {{ session.grappling_type }}
-                        <!-- Add more session details as needed -->
-                    </li>
-                {% empty %}
-                    <p>No training sessions found.</p>
-                {% endfor %}
-            </ul>
-          </div>        
+
+          {% comment %} Column 3 {% endcomment %}
+          <div class="total-time-display" id="total-hours">
+            <h2>Dashboard</h2>
+          </div>
+
         </section>
         
-        <div class="total-time-display" id="total-hours">
-          <h3>Hours Trained: {{ hours_trained}} </h3>
-          <br>
-          <h3>Minutes Trained: {{ minutes_trained }}</h3>
-          <br>
-          <h3>Total Mat time: {{ total_mat_time}} </h3>
-        </div>
+        
         
             </div>
           </main>
