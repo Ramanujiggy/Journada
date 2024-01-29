@@ -1,17 +1,13 @@
 from django.shortcuts import render, redirect
-from django.db.models import Sum
 from django.http import HttpResponse
-from .models import Profile, GrappleEntry
+from .models import Profile
 from django.http import JsonResponse
 from django.core.serializers import serialize
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.template import loader
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user
-from django import forms
 from .forms import TrainingSessionForm
-import json
+
+from .services import report_generator
 
 
 def index(request):  # returns all users
@@ -42,9 +38,7 @@ def log_session(request):
             date = form.cleaned_data["date"]
             hours = form.cleaned_data["time"]
             training_session.save()
-            return redirect(
-                "home"
-            )  # change this to the dashboard view for triaining sessions
+            return redirect("/users/dashboard")
         else:
             return JsonResponse({"errors": form.errors}, status=400)
     else:
@@ -57,30 +51,16 @@ def dashboard(request):
     """returns all training sessions for specific user"""
     user = get_user(request)
     user_id = user.id
-    sessions = GrappleEntry.objects.filter(user=user)
-    total_hours_trained = (
-        GrappleEntry.objects.filter(id=user_id).aggregate(
-            total_hours=Sum("hours_trained")
-        )["total_hours"]
-        or 0
-    )
 
-    total_minutes_trained = (
-        GrappleEntry.objects.filter(id=user_id).aggregate(
-            total_minutes=Sum("minutes_trained")
-        )["total_minutes"]
-        or 0
-    )
-
-    total_mat_time = round(total_hours_trained + (total_minutes_trained // 60))
+    report = report_generator.generate_report(user_id=user_id)
 
     return render(
         request,
         "view_training_logs.html",
         {
-            "sessions": sessions,
-            "hours_trained": total_hours_trained,
-            "minutes_trained": total_minutes_trained,
-            "total_mat_time": total_mat_time,
+            "sessions": report.grapple_entries,
+            "hours_trained": report.hours_trained,
+            "minutes_trained": report.minutes_trained,
+            "total_mat_time": report.total_mat_time,
         },
     )
