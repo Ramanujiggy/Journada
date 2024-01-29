@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entries</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--- <link rel="stylesheet" href="{% static 'css/main.css' %}">-->
+    <link rel="stylesheet" href="\\RNas1\First_Share\Repository\Journada\Journada\static\css\main.css">
+</head>
+<body>
+    <header>
+      
+    </header>
+    
+    <main>
+      {% block content %}
+        <section>
+          <h1 class="page-title" id="dashboard-title">Your Journal Entries</h1>
+        </section>
+      
+        <section class="3-col">
+
+          {% comment %} Column 1 {% endcomment %}
+          <div>
+            <h2>Journal Entries</h2>
+            <div>
+              <!-- Loop through sessions and display each one -->
+              {% for grapple_entry in grapple_entries %}
+                  <p>
+                    <span>Date: </span><span>{{  grapple_entry.date }}</span>
+                  </p>
+                  <p>
+                      <span>Entry: </span><span>{{ grapple_entry.notes }}</span>
+                  </p>
+              {% empty %}
+                  <p>
+                      No journal entries found. Add a journal entry to a 
+                      <a href="{% url 'users:log_session' %}">new</a> or
+                      <a href="{% url 'users:dashboard' %}">existing</a> training session.
+                  </p>
+              {% endfor %}
+            </div>
+          </div>
+
+        </section>
+        
+        
+        
+            </div>
+          </main>
+          
+       
+        <!-- Add any other sections or content you need for the dashboard -->
+        {% endblock %}
+   
+    
+    <footer>
+        <!-- Footer content if needed -->
+    </footer>
+</body>
+</html>
