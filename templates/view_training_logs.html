@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!--- <link rel="stylesheet" href="{% static 'css/main.css' %}">-->
-    <link rel="stylesheet" href="\\RNas1\First_Share\Repository\Journada\Journada\static\css\main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
 </head>
 <body>
     <header>
@@ -18,16 +18,15 @@
     
     <main>
       {% block content %}
-        <section>
-          <h1 class="page-title" id="dashboard-title">Welcome to Your Training Dashboard</h1>
+        <section class="page-title" id="dasbhoard-title">
+          <h1>Welcome to Your Training Dashboard</h1>
         </section>
       
-        <section id="sessions-list" class="3-col">
-
+        <section id="training-data-display">
           {% comment %} Column 1 {% endcomment %}
-          <div class="labels" id="training-session-title">
-            <h2>Training Sessions</h2>
-            <div class="sessions" id="sessions">
+          <div class="labels" id="training-sessions">
+            <h2 id="training-sessions-title">Training Sessions</h2>
+            <div class="scroll-list" id="training-sessions-list">
               <ul class="ul" id="ul-sessions">
                   <!-- Loop through sessions and display each one -->
                   {% for session in sessions %}
@@ -46,18 +45,19 @@
           </div>   
           
           {% comment %} Column 2 {% endcomment %}
-          <div class="total-time-display" id="total-hours">
+          <div class="display-total-time" id="total-hours">
             <h3>Hours Trained: {{ hours_trained}} </h3>
             <br>
             <h3>Minutes Trained: {{ minutes_trained }}</h3>
             <br>
-            <h3>Total Mat time: {{ total_mat_time}} </h3>
+            <h3>Total Mat time: {{ total_mat_time}} hours. </h3>
           </div>
-
+          
           {% comment %} Column 3 {% endcomment %}
-          <div class="total-time-display" id="total-hours">
+          <div class="display-dashboard" id="weekly-training">
             <h2>Dashboard</h2>
           </div>
+          
 
         </section>
         

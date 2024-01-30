@@ -1,11 +1,14 @@
 body {
-    background-color: #217969;
+    background-color: #31B49C;
+    padding-bottom: 300px;
+    width: 100%;
+
 }
 
-.container {}
+
 
 h1 {
-    color: #793d21;
+    color: #672e14e6;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-shadow: rgb(1, 119, 109);
 
@@ -78,20 +81,18 @@ h1 {
     justify-self: right;
 }
 
-.total-time-display #total-hours {
-    position: relative;
-    top: 100px;
-    float: left;
-    max-width: fit-content;
+#total-hours {
+    top: 20px;
+    border: 1px solid #000;
+    margin-top: 40px;
+
+
 
 }
 
 #main-body-block {
-    display: flex;
-    flex-direction: column;
-    max-width: 1800px;
-    max-height: 1000px;
-    justify-content: center;
+    border: 1px solid #000000;
+    justify-content: space-between;
 
 }
 
@@ -103,37 +104,44 @@ h1 {
 
 /* Dashboard */
 
-#sessions-list {
+#training-data-display {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    max-height: 350px;
-    max-width: 350px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
     overflow-y: auto;
     border: 1px solid #000;
     padding: 10px;
 }
 
-#training-session-title {
-    max-height: 150px;
-    margin: auto;
-    justify-content: flex-start;
-    border-width: 5px;
-    border-radius: 35px;
-    border-style: inset;
-    padding: 20px;
+#training-sessions {
+    box-sizing: border-box;
+}
 
+.labels #training-sessions-title {
+    border: solid 1px #000;
+    text-align: center;
 }
 
 ul {
     list-style-type: none;
     padding-left: 0%;
+    border: 1px solid #000;
 
 }
 
-#sessions ul li:not(:last-child) {
-    border-bottom: 1px solid #000;
+#training-sessions ul li:not(:last-child) {
+    border-bottom: 1px dashed #000;
     justify-self: flex-start;
+
+}
+
+#weekly-training {
+    text-align: center;
+    border: 1px solid #000;
+    margin-top: 30px;
+
 
 }
 
