@@ -6,8 +6,9 @@ body {
 }
 
 #main-body-block {
-    border: 1px solid #000000;
     justify-content: space-between;
+    padding: 10px 0;
+
 
 }
 

@@ -36,6 +36,9 @@
                           {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
                           Type: {{ session.grappling_type }}
                           <!-- Add more session details as needed -->
+                          <div class="form-group" id="form-btn-submit-time">
+                            <button type="edit" class="btn btn-primary">Submit</button>
+                         </div>
                       </li>
                   {% empty %}
                       <p>No training sessions found.</p>
@@ -56,6 +59,9 @@
           {% comment %} Column 3 {% endcomment %}
           <div class="display-dashboard" id="weekly-training">
             <h2>Dashboard</h2>
+            <div class="display-dashboard" id="display-graph">
+              <img src="{% static 'images/testgraph.png' %}"alt="Weekly Training" width="500" height="600"> 
+            </div>
           </div>
           
 
