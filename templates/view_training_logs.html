@@ -32,12 +32,12 @@
                   {% for session in sessions %}
                       <li class="list-item" id="training-session">
                           <!-- Display session information here -->
-                          Date: {{ session.date }}-
+                          <div>Date: {{ session.date }}-
                           {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
-                          Type: {{ session.grappling_type }}
+                          Type: {{ session.grappling_type }}</div>
                           <!-- Add more session details as needed -->
-                          <div class="form-group" id="form-btn-submit-time">
-                            <button type="edit" class="btn btn-primary">Submit</button>
+                          <div class="form-group" id="form-btn-edit-time">
+                            <button type="submit" class="btn btn-primary">Edit</button>
                          </div>
                       </li>
                   {% empty %}
