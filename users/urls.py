@@ -10,5 +10,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("log_session", views.log_session, name="log_session"),
+    path("journal_entries", views.list_journal_notes, name="list_journal_notes")
     # path('search/<int:user_id>', views.search,name='search')
 ]

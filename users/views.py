@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user
 from .forms import TrainingSessionForm
 
-from .services import report_generator
+from users.services import grapple_entry_service
 
 
 def index(request):  # returns all users
@@ -23,6 +23,20 @@ def search(request, user_id):  # retrieve a specific user
         return HttpResponse(serialized_data)
     except Profile.DoesNotExist:
         return JsonResponse({"error": "User not found"}, status=404)
+
+
+def list_journal_notes(request):
+    user = get_user(request)
+    user_id = user.id
+    grapple_entries = grapple_entry_service.fetch_all_grapple_entries_with_notes(user_id)
+
+    return render(
+        request,
+        "view_journal_notes.html",
+        {
+            "grapple_entries": grapple_entries
+        }
+    )
 
 
 def log_session(request):
@@ -52,7 +66,7 @@ def dashboard(request):
     user = get_user(request)
     user_id = user.id
 
-    report = report_generator.generate_report(user_id=user_id)
+    report = grapple_entry_service.generate_report(user_id=user_id)
 
     return render(
         request,

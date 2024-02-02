@@ -1,11 +1,17 @@
+from typing import List
+
 from django.db.models import Sum
 
 from users.domain_models import Report
 from users.models import GrappleEntry
 
 
+def fetch_all_grapple_entries_with_notes(user_id: int) -> List[GrappleEntry]:
+    return [r for r in GrappleEntry.filter_by_user_has_notes(user_id)]
+
+
 def generate_report(user_id: int) -> Report:
-    grapple_entries = GrappleEntry.objects.filter(user_id=user_id)
+    grapple_entries = GrappleEntry.filter_by_user(user_id)
     total_hours_trained = (
         grapple_entries.aggregate(
             total_hours=Sum("hours_trained")

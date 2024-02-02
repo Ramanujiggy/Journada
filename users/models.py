@@ -1,7 +1,6 @@
-import uuid
-
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import QuerySet
 
 
 class Profile(models.Model):
@@ -32,3 +31,11 @@ class GrappleEntry(models.Model):
 
     def __str__(self) -> str:
         return str(self.user)
+
+    @staticmethod
+    def filter_by_user(user_id: int) -> QuerySet:
+        return GrappleEntry.objects.filter(user_id=user_id).order_by("-date")
+
+    @staticmethod
+    def filter_by_user_has_notes(user_id: int) -> QuerySet:
+        return GrappleEntry.filter_by_user(user_id).exclude(notes="")
