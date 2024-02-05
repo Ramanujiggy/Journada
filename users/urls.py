@@ -11,5 +11,9 @@ urlpatterns = [
     path("dashboard/", views.dashboard, name="dashboard"),
     path("log_session", views.log_session, name="log_session"),
     path("journal_entries", views.list_journal_notes, name="list_journal_notes")
-    # path('search/<int:user_id>', views.search,name='search')
+    path(
+        "edit_grapple_entry/<int:grapple_entry_id>",
+        views.edit_grapple_entry,
+        name="edit_grapple_entry",
+    ),
 ]

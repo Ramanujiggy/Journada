@@ -34,11 +34,15 @@
                           <!-- Display session information here -->
                           <div>Date: {{ session.date }}-
                           {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
-                          Type: {{ session.grappling_type }}</div>
+                          Type: {{ session.grappling_type }}
+                          ID: {{session.id }}</div>
                           <!-- Add more session details as needed -->
                           <div class="form-group" id="form-btn-edit-time">
+                            
+                            <a href="{% url 'edit_grapple_entry' session.id %}">
                             <button type="submit" class="btn btn-primary">Edit</button>
-                         </div>
+                          </a>
+                          </div>
                       </li>
                   {% empty %}
                       <p>No training sessions found.</p>

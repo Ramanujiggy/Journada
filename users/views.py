@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Profile
+from .models import Profile, GrappleEntry
 from django.http import JsonResponse
 from django.core.serializers import serialize
 from django.contrib.auth.decorators import login_required
@@ -76,5 +76,25 @@ def dashboard(request):
             "hours_trained": report.hours_trained,
             "minutes_trained": report.minutes_trained,
             "total_mat_time": report.total_mat_time,
+        },
+    )
+
+
+@login_required
+def edit_grapple_entry(request, grapple_entry_id):
+    """allows user to edit grapple_entry"""
+    user = get_user(request)
+    user_id = user.id
+    current_entry = GrappleEntry.objects.get(pk=grapple_entry_id, user_id=user_id)
+
+    return render(
+        request,
+        "edit_training_logs.html",
+        {
+            "hours_trained": current_entry.hours_trained,
+            "minutes_trained": current_entry.minutes_trained,
+            "grappling_type": current_entry.grappling_type,
+            "date": current_entry.date,
+            "time": current_entry.time,
         },
     )
