@@ -86,15 +86,16 @@ def edit_grapple_entry(request, grapple_entry_id):
     user = get_user(request)
     user_id = user.id
     current_entry = GrappleEntry.objects.get(pk=grapple_entry_id, user_id=user_id)
-
+    formatted_date = current_entry.date.strftime('%Y-%m-%d')
+    formatted_time = current_entry.time.strftime('%H-%M-%p')
     return render(
         request,
-        "edit_training_logs.html",
+        "edit_training_log.html",
         {
             "hours_trained": current_entry.hours_trained,
             "minutes_trained": current_entry.minutes_trained,
             "grappling_type": current_entry.grappling_type,
-            "date": current_entry.date,
-            "time": current_entry.time,
+            "grappling_date": formatted_date,
+            "grappling_time": current_entry.time,
         },
     )

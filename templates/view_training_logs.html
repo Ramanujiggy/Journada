@@ -39,7 +39,7 @@
                           <!-- Add more session details as needed -->
                           <div class="form-group" id="form-btn-edit-time">
                             
-                            <a href="{% url 'edit_grapple_entry' session.id %}">
+                            <a href="{% url 'users:edit_grapple_entry' grapple_entry_id=session.id %}">
                             <button type="submit" class="btn btn-primary">Edit</button>
                           </a>
                           </div>
