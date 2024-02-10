@@ -4,8 +4,8 @@ Journada is a time logging application for grappling training.
 
 ## Install
 1. To run locally, you can opt to use a docker container for the database and reference the docker-compose.yml. 
-2. run python manage.py runserver <port>
-3. Login page will be at http://127.0.0.1:<port>/
+2. run python manage.py runserver 8000
+3. Login page will be at http://127.0.0.1:8000/
 
 ## Usage
 
