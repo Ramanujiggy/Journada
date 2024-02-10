@@ -15,37 +15,37 @@
 <body>
   <div class="container" id="time-entry-banner">
     <h1 class="page-title">Edit Training session</h1>
-    <form action="edit_grapple_entry" method="POST">
+    <form  method="POST">
     {% csrf_token%}
   </div>
 
   <div class="container" id="time-entry-form">
   <div class="form-group" id="form-hours-trained">
-    <label for="{{ hours_trained}}">Hours Trained</label>
+    <label for="{{ form.hours_trained.id_for_label }}">Hours Trained</label>
     <input type="number" class="form-control" id="{{form.hours_trained.id_for_label}}" name="{{form.hours_trained.name}}" value="{{hours_trained}}">
   </div>
 
   <div class="form-group" id="form-minutes-trained">
-    <label for="{{minutes_trained}}">Minutes Trained</label>
-    <input type="number" class="form-control" id="{{form.minutes_trained.id_for_label}}" name="{{minutes_trained}}"  value="{{minutes_trained}}">
+    <label for="{{form.minutes_trained.id_for_label}}">Minutes Trained</label>
+    <input type="number" class="form-control" id="{{form.minutes_trained.id_for_label}}" name="{{form.minutes_trained.name}}"  value="{{minutes_trained}}">
   </div>
 
   <div class = "form-group" id="form-grappling-id">
-    <label for="{{grappling_type}}">Grappling Type (Gi/Nogi)</label>
+    <label for="{{form.grappling_type.id_for_label}}">Grappling Type (Gi/Nogi)</label>
     <select class="form-control" id="{{form.grappling_type.id_for_label}}" name= "{{form.grappling_type.name}}"value="{{grappling_type}}">
-      <option value = "Gi">Gi</option>
-      <option value = "Nogi">No-Gi</option>
+      <option value = "Gi" {% if grappling_type == 'Gi'%} selected {% endif %}>Gi</option>
+      <option value = "Nogi" {% if grappling_type == 'Nogi'%} selected {% endif %}>No-Gi</option>
     </select>
   </div>
 
   <div class = "form-group" id="form-date-id">
-     <label for ="{{grapling_date}}">Date</label>
-     <input type="date" class ="form-control" id="{{form.date.id_for_label}}" name="{{form.date.name}}" value="{{grappling_date}}" >
+     <label for ="{{form.date.id_for_label}}">Date</label>
+     <input type="date" class ="form-control" id="{{form.date.id_for_label}}" name="{{form.date.name}}" value="{{date}}" >
   </div>
 
   <div class = "form-group" id="form-time-id">
-    <label for="{{grapplnig_time}}">Time</label>
-    <input type="time" class ="form-control" id="{{form.time.id_for_label}}" name="{{form.time.name}}" value="{{grappling_time}}" >
+    <label for="{{form.time.id_for_label}}">Time</label>
+    <input type="time" class ="form-control" id="{{form.time.id_for_label}}" name="{{form.time.name}}" value="{{time}}" >
   </div>
 
   <div class="form-group" id="form-btn-submit-time">

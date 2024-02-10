@@ -6,6 +6,7 @@ from django.core.serializers import serialize
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user
 from .forms import TrainingSessionForm
+from django.shortcuts import get_object_or_404
 
 from users.services import grapple_entry_service
 
@@ -46,11 +47,6 @@ def log_session(request):
         if form.is_valid():
             training_session = form.save(commit=False)
             training_session.user = request.user
-            hours_trained = form.cleaned_data["hours_trained"]
-            minutes_trained = form.cleaned_data["minutes_trained"]
-            grappling_type = form.cleaned_data["grappling_type"]
-            date = form.cleaned_data["date"]
-            hours = form.cleaned_data["time"]
             training_session.save()
             return redirect("/users/dashboard")
         else:
@@ -83,19 +79,29 @@ def dashboard(request):
 @login_required
 def edit_grapple_entry(request, grapple_entry_id):
     """allows user to edit grapple_entry"""
-    user = get_user(request)
-    user_id = user.id
-    current_entry = GrappleEntry.objects.get(pk=grapple_entry_id, user_id=user_id)
-    formatted_date = current_entry.date.strftime('%Y-%m-%d')
-    formatted_time = current_entry.time.strftime('%H-%M-%p')
+    user = request.user
+    current_entry = get_object_or_404(GrappleEntry, pk=grapple_entry_id, user=user)
+    
+    if request.method == 'POST':
+        form = TrainingSessionForm(request.POST, instance=current_entry)
+        if form.is_valid():
+            print("form is valid")
+            form.save()
+            return redirect("users:dashboard")
+    else:
+        print("form is invalid")
+        print(TrainingSessionForm.__dict__)
+        form = TrainingSessionForm(instance=current_entry) 
+        
     return render(
         request,
-        "edit_training_log.html",
-        {
-            "hours_trained": current_entry.hours_trained,
-            "minutes_trained": current_entry.minutes_trained,
-            "grappling_type": current_entry.grappling_type,
-            "grappling_date": formatted_date,
-            "grappling_time": current_entry.time,
+            "edit_training_log.html",
+            {
+                "form":form,
+                "hours_trained": current_entry.hours_trained,
+                "minutes_trained": current_entry.minutes_trained,
+                "grappling_type": current_entry.grappling_type,
+                "date": current_entry.date.strftime('%Y-%m-%d'),
+            "time": current_entry.time.strftime('%H-%M-%S')
         },
     )
