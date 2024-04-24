@@ -1,0 +1,15 @@
+{'__module__': 'users.forms', 'Meta': <class 'users.forms.TrainingSessionForm.Meta'>, 
+'declared_fields': {},
+'__doc__': None, 
+'media': <property object at 0x0000020B259859E0>, 
+'base_fields': {'date': <django.forms.fields.DateField object at 0x0000020B258B5AF0>, 
+'hours_trained': <django.forms.fields.IntegerField object at 0x0000020B25996F30>, 
+'minutes_trained': <django.forms.fields.IntegerField object at 0x0000020B25996ED0>, 
+'notes': <django.forms.fields.CharField object at 0x0000020B259970E0>, 
+'time': <django.forms.fields.TimeField object at 0x0000020B25996EA0>, 
+'grappling_type': <django.forms.fields.CharField object at 0x0000020B25996F00>
+    },
+    
+    
+    '_meta': <django.forms.models.ModelFormOptions object at 0x0000020B25996D50>
+}
