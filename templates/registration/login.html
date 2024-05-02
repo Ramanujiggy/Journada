@@ -19,7 +19,7 @@
 {% block content %}
 <div class="login-banner">
 </div>
-<div class="login-form" id="login-form">
+<div class="login-form brandFont" id="login-form">
 <form method="post">
     {% csrf_token%} {{form|crispy}}
     <button type = "submit" class="btn btn-success brandFont">Login</button>
