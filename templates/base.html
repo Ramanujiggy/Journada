@@ -32,13 +32,13 @@
             {% comment %} Modal body {% endcomment %}
             <div class ="modal-body">
               {% comment %} overlay menu links {% endcomment %}
-              <div>
+              <div class="modal-link">
                 <a class="brandFont" href="{% url 'login' %}">Login</a>
               </div>
-              <div>
+              <div class="modal-link">
                 <a class="brandFont" href="{% url 'signup' %}">Register</a>
               </div>
-              <div>
+              <div class="modal-link">
                 <a class="brandFont" href="#">About Journada</a>
               </div>
             </div>
@@ -59,7 +59,7 @@
           </div>
           
           {% else %}
-          <p>  Welcome, {{ user.username }}.</p>
+       
           {% endif %}
         </div>
     </main>

@@ -1,9 +1,13 @@
+/* media queries */
+
+@media () {
+
+
+}
+
+
 /* global */
 
-@font-face {
-    font-family: Museo Slab;
-    src: url(.);
-}
 :root{
     /* colors */
     --primary: #217263;
@@ -15,6 +19,12 @@
 
 }
 
+.modal-link{
+    padding: 10%;
+    font-size: larger;
+    font-weight: 600;
+
+}
 
 
 .brandFont {
