@@ -1,5 +1,9 @@
 /* global */
 
+@font-face {
+    font-family: Museo Slab;
+    src: url(.);
+}
 :root{
     /* colors */
     --primary: #217263;
@@ -14,13 +18,10 @@
 
 
 .brandFont {
-  font-family: "Honk", system-ui;
+  font-family: "Jura",;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
-  font-variation-settings:
-    "MORF" 15,
-    "SHLN" 50;
 }
 
 body {
