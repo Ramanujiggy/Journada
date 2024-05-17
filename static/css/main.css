@@ -1,9 +1,5 @@
 /* media queries */
 
-@media () {
-
-
-}
 
 
 /* global */
@@ -24,6 +20,11 @@
     font-size: larger;
     font-weight: 600;
 
+}
+
+#thenav {
+    border-width: 510px;
+    border-color: #000;
 }
 
 
