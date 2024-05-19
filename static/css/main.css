@@ -15,6 +15,7 @@
 
 }
 
+
 .modal-link{
     padding: 10%;
     font-size: larger;
@@ -36,10 +37,24 @@
 }
 
 body {
-    background-color:var(--primary);
-    padding-bottom: 300px;
+    position: relative;
+    background-image:url(../images/IMG_5097.JPEG);
+    background-size: 150%;
+    background-position: center;
+    background-repeat: repeat;
     width: 100%;
-    
+    margin:0;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(255, 255, 255, 0.3);
+    z-index: -1;
 
 }
 
@@ -49,24 +64,28 @@ body {
 }
 
 /* navigation */
+.navbar{
+    opacity: 70%;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.motivational {
+    text-align: center;
+    color: white;
+    
+}
 
 .modal-header{
     background-color: var(--primary);
     border-radius: 2px;
 }
-.modal-body {
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 4%;
-    background-color: burlywood;
-    border-radius: 2px;
-}
 
-.jumbotron {
-    text-align: center !important;
-    padding-top: 20px !important;
-    background-color: var(--primary);
-}
 
 .btn {
     background-color: var(--primary);
@@ -87,12 +106,12 @@ body {
     border-radius: 4px;
 }
 
-h1 {
-    color: var(--secondary);
-    font-family: "Honk";
+#title {
+    color: black;
+    font-weight: 700;
+    font-family: "Jura";
     text-shadow: rgb(1, 119, 109);
-    font-size: 40pt;
-    font-weight: 900;
+    font-size: 60pt;
     text-align: center;
 }
 
@@ -128,6 +147,7 @@ h1 {
 .login-form {
     margin: auto;
     width: 50%;
+    padding: 40px;
 }
 
 .login-banner {

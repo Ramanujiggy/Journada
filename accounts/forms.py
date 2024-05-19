@@ -23,3 +23,15 @@ class SignUpForm(UserCreationForm):
         model = User
         fields=('first_name','last_name','username','password1','password2', 'email')
 
+
+
+
+
+class LoginForm(UserCreationForm):
+    email=forms.EmailField(label='email',required=True)
+    sucess_url = reverse_lazy("home")
+    
+    
+    class Meta:
+        model = User
+        fields=('password',)
