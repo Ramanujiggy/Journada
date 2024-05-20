@@ -93,9 +93,7 @@ body::before {
     
 }
 
-.btn:focus {
-    background-color: var(--primary);
-}
+
 .btn-success:focus{
     border-color:var(--primary);
 }
@@ -106,14 +104,6 @@ body::before {
     border-radius: 4px;
 }
 
-#title {
-    color: black;
-    font-weight: 700;
-    font-family: "Jura";
-    text-shadow: rgb(1, 119, 109);
-    font-size: 60pt;
-    text-align: center;
-}
 
 .main-title {
     height: 200px;
@@ -133,6 +123,29 @@ body::before {
     color: #793d21;
 }
 
+.main-pg-login-button{
+    display: flex;
+    justify-content: center;
+    padding:20px; 
+
+}
+
+.main-pg-bucket{
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+}
+
+#title {
+    color: black;
+    font-weight: 700;
+    font-family: "Jura";
+    text-shadow: rgb(1, 119, 109);
+    font-size: 60pt;
+    text-align: center;
+}
+
+
 #main-signin-prompt {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: auto;
@@ -143,6 +156,10 @@ body::before {
 #main-signin-prompt a {
     color: #793d21;
 }
+
+
+
+/* Login Page */
 
 .login-form {
     margin: auto;
