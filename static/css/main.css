@@ -23,12 +23,6 @@
 
 }
 
-#thenav {
-    border-width: 510px;
-    border-color: #000;
-}
-
-
 .brandFont {
   font-family: "Jura",;
   font-optical-sizing: auto;
@@ -43,6 +37,7 @@ body {
     background-position: center;
     background-repeat: repeat;
     width: 100%;
+    height: 100%;
     margin:0;
 }
 
@@ -81,10 +76,6 @@ body::before {
     
 }
 
-.modal-header{
-    background-color: var(--primary);
-    border-radius: 2px;
-}
 
 
 .btn {
@@ -133,7 +124,7 @@ body::before {
 .main-pg-bucket{
     display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 }
 
 #title {
@@ -242,7 +233,7 @@ body::before {
 ul {
     list-style-type: none;
     padding-left: 0%;
-    border: 1px solid #000;
+    
 
 }
 

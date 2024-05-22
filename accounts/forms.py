@@ -34,4 +34,4 @@ class LoginForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields=('password',)
+        fields=()

@@ -14,49 +14,29 @@
 <body>
   {% block content %}
   {% if user.is_authenticated %}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-labelledby="navbarDropdown">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">{{user.username}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid motivational brandFont">
+        <a class="navbar-brand ">{{user.username}}: Journal Entries</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:dashboard' %}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:log_session' %}">Log Session</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Log Training Session
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'users:log_session' %}">Enter Time</a></li>
-                <li><a class="dropdown-item" href="{% url 'users:dashboard' %}">Dashboard</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'users:list_journal_notes' %}">Journal Entries</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
           </ul>
-          
-          </form>
         </div>
-      </div>
-    </nav>
-    {% endif %}
-
-
-
-    <header>
-      <h1 class="page-title" id="dashboard-title">Your Journal Entries</h1>
-      
-    </header>
-    
+      </nav>
     <main>
       
         <section class="3-col">
@@ -90,7 +70,7 @@
             </div>
           </main>
           
-       
+          {% endif %}
         <!-- Add any other sections or content you need for the dashboard -->
         {% endblock %}
    
