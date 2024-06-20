@@ -61,6 +61,7 @@ def dashboard(request):
     """returns all training sessions for specific user"""
     user = get_user(request)
     user_id = user.id
+    currentUser= get_user(user)
 
     report = grapple_entry_service.generate_report(user_id=user_id)
 
@@ -68,10 +69,13 @@ def dashboard(request):
         request,
         "view_training_logs.html",
         {
-            "sessions": report.grapple_entries,
+            
             "hours_trained": report.hours_trained,
             "minutes_trained": report.minutes_trained,
             "total_mat_time": report.total_mat_time,
+            "gi_hours":report.grappling_type_gi,
+            "nogi_hours":report.grappling_type_nogi
+            
         },
     )
 
