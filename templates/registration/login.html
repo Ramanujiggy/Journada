@@ -14,8 +14,18 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-
 {% block content %}
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+      <div class="motivational brandFont">
+        <p>Make tomorrow easy; work hard today.</p>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" href="{% url 'home'%}">Home</a>
+        <a class="nav-link" href="#">About</a>   
+    </div>
+    </div>
+  </nav>
 <div class="login-banner">
 </div>
 <div class="login-form brandFont" id="login-form">

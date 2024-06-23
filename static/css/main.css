@@ -6,7 +6,7 @@
 
 :root{
     /* colors */
-    --primary: #217263;
+    --primary: #316760;
     --secondary:#672e14e6;
     --btn-font:  "Honk"
 }
@@ -28,8 +28,7 @@
 
 html,body {
     position: relative;
-    background-color:#217263;
-    background-image:url(../images/IMG_5097.JPEG);
+    background-color:#ffedd1;
     background-size:cover;
     background-position: center center;
     background-repeat:no-repeat;
@@ -44,21 +43,41 @@ html,body {
 }
 
 /* navigation */
-.navbar{
-    opacity: 70%;
+.navbar {
+    background-color: #ffedd1;
+    font-family: "Jura";
+
+}
+
+.navbar {
+    display: flex;
+justify-content: left;
+
 }
 
 .navbar .container-fluid {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    
+    
     
 }
 
 .motivational {
-    text-align: center;
-    color: white;
+    text-align:left;
+    color:#316760;
 }
+
+
+.nav-items {
+    float:right;
+}
+
+.nav-link {
+   float: right;
+
+}
+
 
 
 
@@ -113,9 +132,9 @@ html,body {
 }
 
 #title {
-    color: #F8FFE5;
+    color: #316760;
     font-weight: 700;
-    font-family: "Jura";
+    font-family: "Waffle-Soft";
     font-size: 320pt;
     display: flex;
     justify-content: center;
@@ -142,12 +161,10 @@ html,body {
 /* Login Page */
 .login-form {
     margin: auto;
-    margin-top: 5%%;
+    margin-top: 5%;
     width: 50%;
     padding: 40px;
     color:#5E807F;
-    background-color:#DEDBD2;
-    border-radius: 5px;
 }
 
 .form-text.text-muted{
@@ -159,7 +176,6 @@ html,body {
     padding-top: 5%;
     width: 50%;
     text-align: center;
-    color: #DEDBD2;
     font-family: "Jura";
 }
 
