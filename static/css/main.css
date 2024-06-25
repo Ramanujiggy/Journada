@@ -50,22 +50,29 @@ html,body {
 }
 
 .navbar {
-    display: flex;
-justify-content: left;
+    padding-top: 24px;
+
 
 }
 
 .navbar .container-fluid {
     display: flex;
-    justify-content: left;
-    
-    
-    
+    justify-content: space-between;
+
 }
 
+.navbar-links {
+    display: flex;
+}
+
+.navbar-link{
+    padding: 10px; 
+
+}
 .motivational {
     text-align:left;
     color:#316760;
+    font-size: 40px;
 }
 
 
@@ -134,7 +141,7 @@ justify-content: left;
 #title {
     color: #316760;
     font-weight: 700;
-    font-family: "Waffle-Soft";
+    font-family: "Jura";
     font-size: 320pt;
     display: flex;
     justify-content: center;
@@ -142,6 +149,7 @@ justify-content: left;
     padding-left: 20%;
     padding-right: 20%;
     padding-bottom: 10%;
+    text-align: center;
 }
 
 

@@ -17,15 +17,17 @@
 <body>
 {% block content %}
     {%if not user.is_authenticated%}
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark">
       <div class="container-fluid">
-        <div class="motivational brandFont">
-          <p>Make tomorrow easy; work hard today.</p>
+        <div class="motivational brandFont">Journada</div>
+        <div class="navbar-links">
+        <div class="navbar-link">About</div>
+        <a href="#"><div class="navbar-link">Support the Project</div></a>
         </div>
       </div>
     </nav>
     <div id="title">
-    <h1 class="brandFont">Journada</h1>
+    <h1 class="brandFont">Make tomorrow easy; work hard today.</h1>
     </div>
     <div class="main-pg-bucket">
       <div class="main-pg-login-button">

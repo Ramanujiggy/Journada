@@ -16,16 +16,14 @@
 <body>
 {% block content %}
 <nav class="navbar navbar-dark">
-    <div class="container-fluid">
-      <div class="motivational brandFont">
-        <p>Make tomorrow easy; work hard today.</p>
-      </div>
-      <div class="nav-items">
-        <a class="nav-link" href="{% url 'home'%}">Home</a>
-        <a class="nav-link" href="#">About</a>   
+  <div class="container-fluid">
+    <a href="{%url 'home' %}"><div class="motivational brandFont">Journada</div></a>
+    <div class="navbar-links">
+    <div class="navbar-link">About</div>
+    <a href="#"><div class="navbar-link">Support the Project</div></a>
     </div>
-    </div>
-  </nav>
+  </div>
+</nav>
 <div class="login-banner">
 </div>
 <div class="login-form brandFont" id="login-form">
@@ -34,6 +32,10 @@
     <button type = "submit" class="btn btn-success brandFont">Login</button>
 </div>  
 </form>
+
+<div class="signup-prompt" id="main-signin-prompt">
+  <p class="brandFont">Don't have an account? Register <a href="/accounts/signup/">here</a>!</p>
+  </div>
 {% endblock %}
 
 
