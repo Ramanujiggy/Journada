@@ -296,3 +296,23 @@ ul {
     width: 100%;
 
 }
+
+
+/* About page */
+
+
+.about-title{
+    color:#316760;
+    padding-top: 4rem; 
+    padding-left: 2rem;
+
+}
+
+.about-text{
+    display: flex;
+    flex-direction: column; 
+    margin-top: 2rem;
+    padding-left: 2rem; 
+    color: #316760;
+
+}

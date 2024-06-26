@@ -20,6 +20,8 @@ def register(request):
 
     return render(request, "registration/signup.html", {"form": form})
 
+def about(request): 
+    return render(request,"about.html")
 
 def user_logout(request):
     logout(request)
