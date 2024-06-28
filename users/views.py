@@ -29,14 +29,12 @@ def search(request, user_id):  # retrieve a specific user
 def list_journal_notes(request):
     user = get_user(request)
     user_id = user.id
-    grapple_entries = grapple_entry_service.fetch_all_grapple_entries_with_notes(user_id)
+    grapple_entries = grapple_entry_service.fetch_all_grapple_entries_with_notes(
+        user_id
+    )
 
     return render(
-        request,
-        "view_journal_notes.html",
-        {
-            "grapple_entries": grapple_entries
-        }
+        request, "view_journal_notes.html", {"grapple_entries": grapple_entries}
     )
 
 
@@ -68,13 +66,11 @@ def dashboard(request):
         request,
         "view_training_logs.html",
         {
-            
             "hours_trained": report.hours_trained,
             "minutes_trained": report.minutes_trained,
             "total_mat_time": report.total_mat_time,
-            "gi_hours":report.all_gi_hours,
-            "nogi_hours":report.grappling_type_nogi
-            
+            "gi_hours": report.all_gi_hours,
+            "nogi_hours": report.all_nogi_hours,
         },
     )
 
@@ -84,8 +80,8 @@ def edit_grapple_entry(request, grapple_entry_id):
     """allows user to edit grapple_entry"""
     user = request.user
     current_entry = get_object_or_404(GrappleEntry, pk=grapple_entry_id, user=user)
-    
-    if request.method == 'POST':
+
+    if request.method == "POST":
         form = TrainingSessionForm(request.POST, instance=current_entry)
         if form.is_valid():
             print("form is valid")
@@ -94,17 +90,17 @@ def edit_grapple_entry(request, grapple_entry_id):
     else:
         print("form is invalid")
         print(TrainingSessionForm.__dict__)
-        form = TrainingSessionForm(instance=current_entry) 
-        
+        form = TrainingSessionForm(instance=current_entry)
+
     return render(
         request,
-            "edit_training_log.html",
-            {
-                "form":form,
-                "hours_trained": current_entry.hours_trained,
-                "minutes_trained": current_entry.minutes_trained,
-                "grappling_type": current_entry.grappling_type,
-                "date": current_entry.date.strftime('%Y-%m-%d'),
-            "time": current_entry.time.strftime('%H-%M-%S')
+        "edit_training_log.html",
+        {
+            "form": form,
+            "hours_trained": current_entry.hours_trained,
+            "minutes_trained": current_entry.minutes_trained,
+            "grappling_type": current_entry.grappling_type,
+            "date": current_entry.date.strftime("%Y-%m-%d"),
+            "time": current_entry.time.strftime("%H-%M-%S"),
         },
     )
