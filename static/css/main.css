@@ -46,12 +46,13 @@ html,body {
 .navbar {
     background-color: #dbccb4;
     font-family: "Jura";
+    padding-top: 24px;
+    overflow: hidden;
 
 }
 
-.navbar {
-    padding-top: 24px;
-
+.navbar-brand{
+    position: relative;
 
 }
 
@@ -259,6 +260,12 @@ html,body {
 ul {
     list-style-type: none;
     padding-left: 0%;
+}
+
+.display-dashboard {
+    display:block;
+    width:100%
+
 }
 
 #training-sessions ul li:not(:last-child) {

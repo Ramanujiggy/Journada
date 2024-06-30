@@ -22,7 +22,7 @@
       {% if user.is_authenticated %}
         <nav class="navbar navbar-dark">
           <div class="container-fluid motivational brandFont">
-            <a class="navbar-brand ">Dashboard View: {{user.username}}</a>
+            <a class="navbar-brand ">Dashboard View:  {{user.username}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,13 +76,11 @@
           <div class="display-total-time" id="total-hours">
             <h3>Hours Trained: {{ hours_trained}} </h3>
             <br>
-            <h3>Minutes Trained: {{ minutes_trained }} minutes.</h3>
+            <h3>Total Mat Hours: {{ total_mat_time}}. </h3>
             <br>
-            <h3>Total Mat time: {{ total_mat_time}} hours. </h3>
+            <h3>Gi Hours: {{ gi_hours }}</h3>
             <br>
-            <h3>Minutes Trained: {{ minutes_trained }} minutes.</h3>
-            <br>
-            <h3>Total Mat time: {{ total_mat_time}} hours. </h3>
+            <h3>Nogi Hours: {{ nogi_hours }}</h3>
 
 
           </div>
@@ -91,7 +89,7 @@
           <div class="display-dashboard" id="weekly-training">
             <h2>Dashboard</h2>
             <div class="display-dashboard" id="display-graph">
-              <img src="{% static 'images/testgraph.png' %}"alt="Weekly Training" width="500" height="600"> 
+              <img src="{% static 'images/testgraph.png' %}"alt="Weekly Training"> 
             </div>
           </div>
           
