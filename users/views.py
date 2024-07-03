@@ -71,6 +71,7 @@ def dashboard(request):
             "total_mat_time": report.total_mat_time,
             "gi_hours": report.all_gi_hours,
             "nogi_hours": report.all_nogi_hours,
+            "sessions":report.grapple_entries
         },
     )
 
