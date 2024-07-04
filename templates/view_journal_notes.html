@@ -14,7 +14,7 @@
 <body>
   {% block content %}
   {% if user.is_authenticated %}
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark">
       <div class="container-fluid motivational brandFont">
         <a class="navbar-brand ">{{user.username}}: Journal Entries</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,12 +47,26 @@
             <div>
               <!-- Loop through sessions and display each one -->
               {% for grapple_entry in grapple_entries %}
-                  <p>
-                    <span>Date: </span><span>{{  grapple_entry.date }}</span>
-                  </p>
-                  <p>
-                      <span>Entry: </span><span>{{ grapple_entry.notes }}</span>
-                  </p>
+
+                  <div class="media journal-entry">
+                    <img src="../static/images/journal-svgrepo-com.svg" height="30" width="30" alt="">
+                    <div class="media-body">
+                        <h4 class="media-heading">John Doe</h4>
+                        <p>{{ grapple_entry.notes }}</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>{{  grapple_entry.date }}</li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+              <section>
+                
+              </section>  
               {% empty %}
                   <p>
                       No journal entries found. Add a journal entry to a 

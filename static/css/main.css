@@ -323,3 +323,12 @@ ul {
     color: #316760;
 
 }
+
+
+/* Journal entries */
+
+
+.media .journal-entry{
+    border: 1px;
+    border-color: black;
+}

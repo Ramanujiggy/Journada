@@ -71,7 +71,7 @@ def dashboard(request):
             "total_mat_time": report.total_mat_time,
             "gi_hours": report.all_gi_hours,
             "nogi_hours": report.all_nogi_hours,
-            "sessions":report.grapple_entries
+            "sessions": report.grapple_entries,
         },
     )
 
@@ -103,5 +103,6 @@ def edit_grapple_entry(request, grapple_entry_id):
             "grappling_type": current_entry.grappling_type,
             "date": current_entry.date.strftime("%Y-%m-%d"),
             "time": current_entry.time.strftime("%H-%M-%S"),
+            "notes": current_entry.notes,
         },
     )
