@@ -328,7 +328,9 @@ ul {
 /* Journal entries */
 
 
-.media .journal-entry{
-    border: 1px;
-    border-color: black;
+.media.journal-entry{
+border: thin solid black; 
+padding: 10px; 
+margin: auto; 
+
 }
