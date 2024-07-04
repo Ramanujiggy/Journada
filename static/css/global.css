@@ -1,0 +1,83 @@
+
+:root{
+    /* colors */
+    --primary: #316760;
+    --secondary:#672e14e6;
+    --btn-font:  "Honk"
+}
+
+
+.modal-link{
+    padding: 10%;
+    font-size: larger;
+    font-weight: 600;
+
+}
+
+.brandFont {
+  font-family: "Jura",;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+html,body {
+    position: relative;
+    background-color:#ffedd1;
+    background-size:cover;
+    background-position: center center;
+    background-repeat:no-repeat;
+    margin:0;
+    height: 100%;
+}
+
+
+#main-body-block {
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* navigation */
+.navbar {
+    background-color: #dbccb4;
+    font-family: "Jura";
+    padding-top: 24px;
+    overflow: hidden;
+
+}
+
+.navbar-brand{
+    position: relative;
+
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-link{
+    padding: 10px; 
+
+}
+.motivational {
+    text-align:left;
+    color:#316760;
+    font-size: 40px;
+}
+
+
+.nav-items {
+    float:right;
+}
+
+.nav-link {
+   float: right;
+
+}
+

@@ -106,3 +106,6 @@ def edit_grapple_entry(request, grapple_entry_id):
             "notes": current_entry.notes,
         },
     )
+
+        # write out code to validate that the data was entered into the database and if valid a toast message is generated
+        #this could be done with ajax? but look into if Django has this functionality as well. 

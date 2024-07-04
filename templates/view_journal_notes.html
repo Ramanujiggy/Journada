@@ -6,10 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %} 
+      <link rel="stylesheet" href="{% static 'css/global.css' %}">
+      <link rel="stylesheet" href="{% static 'css/journal_entry.css' %}">
+    {% endblock %}
+
     <title>Journal Entries</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!--- <link rel="stylesheet" href="{% static 'css/main.css' %}">-->
-    <link rel="stylesheet" href="\\RNas1\First_Share\Repository\Journada\Journada\static\css\main.css">
+
 </head>
 <body>
   {% block content %}
@@ -47,26 +50,22 @@
             <div>
               <!-- Loop through sessions and display each one -->
               {% for grapple_entry in grapple_entries %}
-
-                  <div class="media journal-entry">
-                    <img src="../static/images/journal-svgrepo-com.svg" height="30" width="30" alt="">
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>{{ grapple_entry.notes }}</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>{{  grapple_entry.date }}</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-
               <section>
-                
-              </section>  
+                <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> 
+                      <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+                      <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                          <h6 class="mb-0">{{user.username}}</h6>
+                          <p class="mb-0 opacity-75">{{ grapple_entry.notes }}</p>
+                        </div>
+                        <small class="opacity-50 text-nowrap">{{  grapple_entry.date }}</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </section>
               {% empty %}
                   <p>
                       No journal entries found. Add a journal entry to a 
