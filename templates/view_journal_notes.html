@@ -5,14 +5,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>{%block title%}Journal Entries{% endblock%}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block extra_css %} 
       <link rel="stylesheet" href="{% static 'css/global.css' %}">
       <link rel="stylesheet" href="{% static 'css/journal_entry.css' %}">
     {% endblock %}
-
-    <title>Journal Entries</title>
-
 </head>
 <body>
   {% block content %}
@@ -41,28 +39,27 @@
         </div>
       </nav>
     <main>
+
       
         <section class="3-col">
-
           {% comment %} Column 1 {% endcomment %}
           <div>
-            <h2>Journal Entries</h2>
             <div>
               <!-- Loop through sessions and display each one -->
               {% for grapple_entry in grapple_entries %}
               <section>
                 <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
                   <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> 
-                      <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-                      <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                          <h6 class="mb-0">{{user.username}}</h6>
-                          <p class="mb-0 opacity-75">{{ grapple_entry.notes }}</p>
-                        </div>
-                        <small class="opacity-50 text-nowrap">{{  grapple_entry.date }}</small>
+                    <a href="{%url 'users:edit_grapple_entry' grapple_entry_id=grapple_entry.id%}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> 
+                      <h6 class="mb-0">{{user.username}}</h6>
+                      
+                      <div class="container">
+                        <p class="mb-0 opacity-75">{{ grapple_entry.notes }}</p>
+                        <small class="opacity-50 text-nowrap">
+                          {{  grapple_entry.date }}
+                        </small>
                       </div>
-                    </a>
+                      </a>  
                   </div>
                 </div>
               </section>
@@ -86,7 +83,7 @@
           {% endif %}
         <!-- Add any other sections or content you need for the dashboard -->
         {% endblock %}
-   
+
     
     <footer>
         <!-- Footer content if needed -->

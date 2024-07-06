@@ -32,9 +32,14 @@ def list_journal_notes(request):
     grapple_entries = grapple_entry_service.fetch_all_grapple_entries_with_notes(
         user_id
     )
-
+    report = grapple_entry_service.generate_report(user_id=user_id) 
+    
     return render(
-        request, "view_journal_notes.html", {"grapple_entries": grapple_entries}
+        request, "view_journal_notes.html",
+        {
+        "grapple_entries": grapple_entries,
+        "sessions": report.grapple_entries,
+        }
     )
 
 
@@ -72,7 +77,7 @@ def dashboard(request):
             "gi_hours": report.all_gi_hours,
             "nogi_hours": report.all_nogi_hours,
             "sessions": report.grapple_entries,
-        },
+        }
     )
 
 
