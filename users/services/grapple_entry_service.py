@@ -16,25 +16,25 @@ def generate_report(user_id: int) -> Report:
     
     #Numerical time display 
     total_hours_trained = (
-        grapple_entries.aggregate(total_hours=Sum("hours_trained"))["total_hours"] or 0
+        grapple_entries.aggregate(total_hours=Sum("hours_trained")).get("total_hours")
     )
-    total_minutes_trained = (
-        grapple_entries.aggregate(total_minutes=Sum("minutes_trained"))["total_minutes"]
-        or 0
-    )
-
     total_gi_entries = grapple_entries.filter(grappling_type="Gi")
     
-    total_gi_hours = total_gi_entries.aggregate(gh=Sum("hours_trained"))["gh"] or 0
+    total_gi_hours = list(total_gi_entries.aggregate(gh=Sum("hours_trained")).values())[0]
 
     total_nogi_entries = grapple_entries.filter(grappling_type="Nogi")
     
     total_nogi_hours = (
         total_nogi_entries.aggregate(ngh=Sum("hours_trained"))["ngh"] or 0
     )
-    total_mat_time = round(total_hours_trained + (total_minutes_trained // 60))
     
+    total_minutes_trained = (
+        grapple_entries.aggregate(total_minutes=Sum("minutes_trained")).get("total_minutes",0)
+    )
     
+    total_mat_time = int(round(total_hours_trained + (total_minutes_trained // 60)))
+
+
     
     
     

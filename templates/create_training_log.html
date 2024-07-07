@@ -36,16 +36,83 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
-          </ul>
-        </nav>
+          </ul>/* Dashboard */
 
-        <header>
-          <div class="container" id="time-entry-banner">
-            <h1 class="page-title">Create Training sessions</h1>
-          </div>
-        </header>      
+#training-data-display {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+#training-sessions {
+    box-sizing: border-box;
+    background-color: #DEDBD2;
+    border-radius: 4%;
+    
+}
+
+.labels #training-sessions-title {
+    text-align: center;
+    background-color: #DEDBD2;
+    margin: 10px; 
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0%;
+}
+
+.display-dashboard {
+    display:block;
+    width:100%
+
+}
+
+#training-sessions ul li:not(:last-child) {
+    border-bottom: 1px solid #000; 
+    border-top: 1px solid black;
+    justify-self: flex-start;
+}
+
+#training-session {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#weekly-training {
+    text-align: center;
+    border: 1px solid #000;
+    margin-top: 30px;
+}
+
+#form-hours-trained {
+    width: 120px
+}
+
+#form-minutes-trained {
+    width: 120px;
+}
+
+#form-grappling-id {
+    width: 120px;
+
+}
+
+.menu-bar {
+    width: 100%;
+
+}
+
+
+    marjgin-top;: 10%;
+    bacbackground-color: ;k
+        </nav>     
       
-  <div class="container" id="time-entry-form">
+  <div class="container bg-tan rounded box shadow display p-4 gap-4 " id="time-entry-form">
     <form action="log_session" method="POST">
       {% csrf_token%}
   <div class="form-group" id="form-hours-trained">

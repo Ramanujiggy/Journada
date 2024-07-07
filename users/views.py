@@ -66,7 +66,7 @@ def dashboard(request):
     user_id = user.id
 
     report = grapple_entry_service.generate_report(user_id=user_id)
-
+    
     return render(
         request,
         "view_training_logs.html",

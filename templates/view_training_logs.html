@@ -46,41 +46,43 @@
               </ul>
             </div>
           </nav>
-        <section id="container training-data-display">
+        
+        
+        
+          <section id="container training-data-display">
           {% comment %} Column 1 {% endcomment %}
-          <div class="container labels" id="training-sessions">
-            <h2 id="training-sessions-title">Training Sessions</h2>
-            <div class="scroll-list" id="training-sessions-list">
-              <ul class="ul" id="ul-sessions">
-                  <!-- Loop through sessions and display each one -->
-                  {% for session in sessions %}
-                      <li class="list-item" id="training-session">
-                          <!-- Display session information here -->
-                          <div>
-                            Date: {{ session.date }}-
-                            {{ session.hours_trained }} Hours and {{ session.minutes_trained }} min. 
-                            Type: {{ session.grappling_type }}
-                            ID: {{session.id }}
-                          </div>
-                          <!-- Add more session details as needed -->
-                          <div class="form-group" id="form-btn-edit-time">
-                            <a href="{% url 'users:edit_grapple_entry' grapple_entry_id=session.id %}">
-                              <button type="submit" class="btn btn-primary">Edit</button>
-                            </a>
-                          </div>
-                      </li>
-                  {% empty %}
-                      <p>No training sessions found.</p>
-                  {% endfor %}
-              </ul>
+          <div class="d-flex flex-column flex-md-row p-5 gap-4 py-md-5  justify-content-center" id="training-sessions">
+            <div class="my-3 p-3 bg-white rounded box shadow text-center"><h2 class="brandFont">Training Sessions</h2>
+              <div class="scroll-list" id="training-sessions-list">
+                <div class="list-group" id="sessions">
+                    <!-- Loop through sessions and display each one -->
+                    {% for session in sessions %}
+                        <div class="container d-flex gap-3 py-3" id="training-session">
+                            <!-- Display session information here -->
+                            <div>
+                              Date: {{ session.date }}-
+                              {{ session.hours_trained }}Hr {{ session.minutes_trained }}m 
+                              Type: {{ session.grappling_type }}
+                              {% comment %} ID: {{session.id }} {% endcomment %}
+                            </div>
+                            <!-- Add more session details as needed -->
+                            
+                              <a href="{% url 'users:edit_grapple_entry' grapple_entry_id=session.id %}">
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                              </a>
+                            </div>
+                    {% empty %}
+                        <p>No training sessions found.</p>
+                    {% endfor %}
+                      </div>
+                    </div>
             </div>
+            
           </div>   
           
           {% comment %} Column 2 {% endcomment %}
-          <div class="container display-total-time" id="total-hours">
+          <div class="my-3 p-3 bg-white rounded box shadow text-center p-5 gap-4 py-md-5 display-total-time">
             <h3 class="">Hours Trained: {{ hours_trained}} </h3>
-            <br>
-            <h3>Total Mat Hours: {{ total_mat_time}}. </h3>
             <br>
             <h3>Gi Hours: {{ gi_hours }}</h3>
             <br>
@@ -88,25 +90,21 @@
           </div>
           
           {% comment %} Column 3 {% endcomment %}
-          <div class="container display-dashboard" id="weekly-training">
+          <div class="container bg-white rounded box shadow display-container p-5 gap-4">
             <h2>Dashboard</h2>
-            <div class="display-dashboard" id="display-graph">
+            <div class="container display-dashboard" id="display-graph">
               <img src="{% static 'images/testgraph.png' %}" class="img-fluid" alt="Weekly Training"> 
             </div>
           </div>
+        </div>
         </section>
         </div>
         {%endif%}
-
-          </main>
-          
-       
-        <!-- Add any other sections or content you need for the dashboard -->
+      </main>
         {% endblock %}
    
-    
-    <footer>
-        <!-- Footer content if needed -->
-    </footer>
+        <footer class="last-container">
+          <!-- Footer content if needed -->
+      </footer>
 </body>
-</hktml>
+</html>
