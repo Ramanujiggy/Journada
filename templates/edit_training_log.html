@@ -11,14 +11,13 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
-
 <body>
   {% block content %}
   <main> 
   {% if user.is_authenticated %}
   <nav class="navbar navbar-dark">
     <div class="container-fluid motivational brandFont">
-      <a class="navbar-brand ">Time Entry Form</a>
+      <a class="navbar-brand ">{{user.username}}: Edit Entry {{ date }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,13 +38,7 @@
         </ul>
       </nav>
     {% endif %}
-  <header>
-    <div class="container" id="time-entry-banner">
-      <h1 class="page-title">Edit Training sessions</h1>
-    </div>
-  </header>
-
-  <div class="container" id="time-entry-form">
+  <div class="container bg-white rounded box shadow display p-3 gap-4" id="time-entry-form">
     <form  method="POST" action="{% url 'users:dashboard' %}">
       {% csrf_token%}
   <div class="form-group" id="form-hours-trained">

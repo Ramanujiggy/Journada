@@ -32,8 +32,9 @@
 }
 .display-container{
     margin-top:10%;
-    margin-bottom:15%;
-    padding-bottom:20%;
+    margin-bottom:5%;
+    text-align: center;
+    font-family: "Jura";
 }
 .display-total-time{
     font-family: "Jura";
